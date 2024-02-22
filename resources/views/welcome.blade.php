@@ -88,7 +88,7 @@
             max-width: 50vw;
             min-height: 20vh;
             margin-left: 50px;
-            margin-top: 18%;
+            margin-top: 10%;
             border-radius: 20px;
             border: 3px solid black;
             justify-content: center;
@@ -115,13 +115,20 @@
             text-decoration: none;
             display: inline-block;
             border-radius: 20px;
-            padding: 10px;
-            
+            padding: 10px;          
         }
         .info:hover{
             background-color: white;
             color: darkblue;
             cursor: pointer;
+        }
+        h2{
+            color: white;
+            font-family: Verdana;
+        }
+        p{
+            color: white;
+            font-family: Verdana;
         }
     </style>
 </head>
@@ -131,9 +138,9 @@
             <div class = "navigation-bar">
                 <h1><a href = "#" class = "web-name">GEM'S FICTOON</a></h1>
                 <ul>
-                    <li><a href = "#" class = "active">HOME</li>
-                    <li><a href ="{{route('dashboard')}}">DASHBOARD</a></li>
-                    <li><a href = "#">LIBRARY</a></li>
+                    <li><a href = "" class = "active">HOME</a></li>
+                    <li><a href ="">DASHBOARD</a></li>
+                    <li><a href = "">LIBRARY</a></li>
                     <li><a href = "#">ABOUT</a></li>
                     <li><a href = "#">ACCOUNT</a></li>
                 </ul>
@@ -164,8 +171,3 @@
     </section>
 </body>
 </html>
-<style>
-    h1{
-        color: red
-    }
-</style>
