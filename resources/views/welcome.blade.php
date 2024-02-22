@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Gem's Fictoon - Start</h1>
+    <h1 >Gem's Fictoon - Start</h1>
 </body>
 </html>
+<style>
+    h1{
+        color: red
+    }
+</style>
