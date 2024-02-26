@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('title');
             $table->longText('summary');
             $table->foreignIdFor(Genre::class);
+            $table->string('image');
             $table->timestamps();
         });
 
