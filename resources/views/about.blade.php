@@ -81,52 +81,52 @@
             width: 100%;
             margin: auto;
             min-height: 100vh;
+            
         }
-        .desc-box{
+        .dev-box{
             background-image: linear-gradient(darkblue, blue);
-            padding: 26px;
-            max-width: 50vw;
-            min-height: 20vh;
+            padding: 20px;
+            max-width: 30vw;
+            max-height: 24vh;
             margin-left: auto;
             margin-right: auto;
             border-radius: 20px;
             border: 3px solid black;
             justify-content: center;
             text-align: justify;
-        }
-        .gem-photo{
-            background-color: black;
-            margin-top: 8%;
-            margin-bottom: 10px;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 20px;
-            border: 3px solid black;
-            width: 180px;
-            height: 180px;
             display: block;
         }
-        .info{
+        .dev-photo{
             background-color: black;
-            color: white;
-            font-family: Verdana;
-            font-size: 16px;
-            border: 2px solid blue;
-            text-align: center;
-            padding: 2px;
-            text-decoration: none;
-            display: inline-block;
+            margin: 10px;
+            margin-right: 30px;
             border-radius: 20px;
-            padding: 10px;          
-        }
-        .info:hover{
-            background-color: white;
-            color: darkblue;
-            cursor: pointer;
+            border: 3px solid black;
+            width: 100px;
+            height: 100px;
+            float: left;
         }
         h2{
             color: white;
             font-family: Verdana;
+        }
+        h3 {
+            color: white;
+            font-family: Verdana;
+            text-align: center;
+            font-size: 18px;
+        }
+        h4{
+            color: white;
+            font-family: Verdana;
+            text-align: left;
+            font-size: 18px;
+        }
+        .some-title{
+            text-align: center;
+            margin-top: 5%;
+            font-size: 30px;
+            color: black;
         }
         h3 {
             color: white;
@@ -158,32 +158,48 @@
             <div class = "navigation-bar">
                 <h1><a href = "#" class = "web-name">GEM'S FICTOON</a></h1>
                 <ul>
-                    <li><a href = "{{ route('welcome.welcome') }}" class = "active">HOME</a></li>
+                    <li><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
                     <li><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
                     <li><a href = "{{ route('library.library') }}">LIBRARY</a></li>
-                    <li><a href = "{{ route('about.about') }}" >ABOUT</a></li>
-                    <li><a href = "{{ route('account.account') }}" >ACCOUNT</a></li>
+                    <li><a href = "{{ route('about.about') }}" class = "active">ABOUT</a></li>
+                    <li><a href = "{{ route('account.account') }}">ACCOUNT</a></li>
                 </ul>
             </div>
         </div>
         <div class = "container">
-        <img src = "img_srcs/gem.png" alt = "gem pic" class = "gem-photo">
-            <div class = "desc-box">
-                <h2> WELCOME TO MY WORLD OF FICTION!</h2>
-                <p>
-                    Hello, I am GEM! I am a visionary character who owns a library of digital books. 
-                    In here, books are not just mere manuscripts; they are treasured gems, each 
-                    holding a unique brilliance waiting to be discovered. I am not just a curator but 
-                    a guide, connecting readers and authors with written gems that will leave an indelible 
-                    mark on their hearts and minds.
-                </p>
-                <p>
-                    My library is also your library! A community where ideas flourish, creativity thrives, 
-                    and the magic of storytelling continues to captivate hearts.
-                </p>
-                <button type = "button" class = "info"><a href = "{{ route('about.about') }}">More info<a></button>
-            </div>
+            <br><br><br>
+        <h2 class = "some-title">DEVELOPERS</h2>
+        <div class = "dev-box">
+            <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
+            <h2>JOPET UMALI</h2>
+            <h4>Project Manager</h4>
         </div>
+        <br>
+        <div class = "dev-box">
+            <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
+            <h2>JIANNE ROSAL</h2>
+            <h4>Frontend Developer</h4>
+        </div>
+        <br>
+        <div class = "dev-box">
+            <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
+            <h2>LARA MAXINE PALMA</h2>
+            <h4>UI/UX Designer</h4>
+        </div>
+        <br>
+        <div class = "dev-box">
+            <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
+            <h2>MARCO GABRIEL ASIA</h2>
+            <h4>Web Developer</h4>
+        </div>
+        <br>
+        <div class = "dev-box">
+            <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
+            <h2>LANCH CABUANG</h2>
+            <h4>Mobile App Developer</h4>
+        </div>
+        <br><br><br>
+        <hr>
     </section>
 </body>
 <footer>
