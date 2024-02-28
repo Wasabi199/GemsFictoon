@@ -16,15 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/welcome', function () {
     return view('welcome');
-})->name('welcome.welcome');;
+})->name('welcome.welcome');
 
 Route::get('/login', function () {
-    return view('Login');
-});
+    return view('login');
+})->name('login');
 
 Route::get('/register', function () {
-    return view('Register');
-});
+    return view('register');
+})->name('register');
 
 Route::get('/about', function () {
     return view('about');
@@ -42,9 +42,9 @@ Route::get('/community', function () {
     return view('community');
 })->name('community.community');;
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/welcome', function () {
+    return view('welcome');
+})->middleware(['auth', 'verified'])->name('welcome.welcome');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

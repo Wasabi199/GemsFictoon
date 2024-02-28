@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="img_srcs/gem.png" type="image/x-icon">
     <title>Gem's Fictoon</title>
     <style>
         body{
@@ -156,13 +157,24 @@
     <section class = "page">
         <div class = "navigation-area">
             <div class = "navigation-bar">
-                <h1><a href = "#" class = "web-name">GEM'S FICTOON</a></h1>
+                <h1><a href = "{{ route('welcome.welcome') }}" class = "web-name">GEM'S FICTOON</a></h1>
                 <ul>
                     <li><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
                     <li><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
                     <li><a href = "{{ route('library.library') }}">LIBRARY</a></li>
                     <li><a href = "{{ route('about.about') }}" class = "active">ABOUT</a></li>
                     <li><a href = "{{ route('account.account') }}">ACCOUNT</a></li>
+                    <li>
+                        <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <x-responsive-nav-link :href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                            {{ __('LOG OUT') }}
+                        </x-responsive-nav-link>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>
