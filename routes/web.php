@@ -14,21 +14,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('welcome.welcome');
 
 Route::get('/login', function () {
-    return view('Login');
-});
+    return view('login');
+})->name('login');
 
 Route::get('/register', function () {
-    return view('Register');
-});
+    return view('register');
+})->name('register');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/about', function () {
+    return view('about');
+})->name('about.about');
+
+Route::get('/account', function () {
+    return view('account');
+})->name('account.account');
+
+Route::get('/library', function () {
+    return view('library');
+})->name('library.library');;
+
+Route::get('/community', function () {
+    return view('community');
+})->name('community.community');;
+
+Route::get('/welcome', function () {
+    return view('welcome');
+})->middleware(['auth', 'verified'])->name('welcome.welcome');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

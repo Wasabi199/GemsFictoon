@@ -88,8 +88,8 @@
             padding: 26px;
             max-width: 50vw;
             min-height: 20vh;
-            margin-left: auto;
-            margin-right: auto;
+            margin-left: 50px;
+            margin-top: 10%;
             border-radius: 20px;
             border: 3px solid black;
             justify-content: center;
@@ -97,15 +97,13 @@
         }
         .gem-photo{
             background-color: black;
-            margin-top: 8%;
-            margin-bottom: 10px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 10px;
+            margin-right: 30px;
             border-radius: 20px;
             border: 3px solid black;
-            width: 180px;
-            height: 180px;
-            display: block;
+            width: 100px;
+            height: 100px;
+            float: left;
         }
         .info{
             background-color: black;
@@ -159,8 +157,8 @@
             <div class = "navigation-bar">
                 <h1><a href = "#" class = "web-name">GEM'S FICTOON</a></h1>
                 <ul>
-                    <li><a href = "{{ route('welcome.welcome') }}" class = "active">HOME</a></li>
-                    <li><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
+                    <li><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
+                    <li><a href = "{{ route('community.community') }}" class = "active">COMMUNITY</a></li>
                     <li><a href = "{{ route('library.library') }}">LIBRARY</a></li>
                     <li><a href = "{{ route('about.about') }}" >ABOUT</a></li>
                     <li><a href = "{{ route('account.account') }}" >ACCOUNT</a></li>
@@ -176,24 +174,6 @@
                         </form>
                     </li>
                 </ul>
-            </div>
-        </div>
-        <div class = "container">
-        <img src = "img_srcs/gem.png" alt = "gem pic" class = "gem-photo">
-            <div class = "desc-box">
-                <h2> WELCOME TO MY WORLD OF FICTION!</h2>
-                <p>
-                    Hello, I am GEM! I am a visionary character who owns a library of digital books. 
-                    In here, books are not just mere manuscripts; they are treasured gems, each 
-                    holding a unique brilliance waiting to be discovered. I am not just a curator but 
-                    a guide, connecting readers and authors with written gems that will leave an indelible 
-                    mark on their hearts and minds.
-                </p>
-                <p>
-                    My library is also your library! A community where ideas flourish, creativity thrives, 
-                    and the magic of storytelling continues to captivate hearts.
-                </p>
-                <button type = "button" class = "info"><a href = "{{ route('about.about') }}">More info<a></button>
             </div>
         </div>
     </section>
