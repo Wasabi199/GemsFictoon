@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Validation\Rules\Enum;
 use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
@@ -34,6 +35,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'username' => ['required', 'string', 'max:255'],
+            'usertype'=>['required','numeric', new Enum(UserType::class)],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -44,7 +46,7 @@ class RegisteredUserController extends Controller
                 'username' => $request->username,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'usertype'=>UserType::ADMIN
+                'usertype'=>$request->usertype
             ]);
         });
 
