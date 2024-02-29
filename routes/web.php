@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::prefix('reader')->middleware(['auth'])->group(function(){
     Route::get('/welcome', function () {
         return view('welcome');
-    })->name('welcome');
+    })->name('welcome.welcome');
     
 
     Route::get('/account', function () {
