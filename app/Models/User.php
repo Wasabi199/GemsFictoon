@@ -3,7 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -22,6 +25,8 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'usertype',
+        'biography'
     ];
 
     /**
@@ -44,6 +49,24 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+            /**
+     * ______________________________________________________________________________________________________
+     * |
+     * |Attributes
+     * |______________________________________________________________________________________________________
+     */
+    public function following():Attribute
+    {
+        
+        return Attribute::get(fn()=>$this->followingUser()->count());
+    }
+
+
+    public function follower():Attribute
+    {
+        
+        return Attribute::get(fn()=>$this->followerUser()->count());
+    }
 
         /**
      * ______________________________________________________________________________________________________
@@ -54,5 +77,15 @@ class User extends Authenticatable
     public function nicknames():HasMany
     {
         return $this->hasMany(Nickname::class);
+    }
+
+    public function followingUser():BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'following_users','user_id','following_id');
+    }
+
+    public function followerUser():BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'follower_users','user_id','follower_id');
     }
 }

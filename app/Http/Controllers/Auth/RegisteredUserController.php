@@ -23,7 +23,9 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        return view('auth.register',[
+            'types'=>UserType::toArray()
+        ]);
     }
 
     /**
@@ -35,13 +37,13 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'username' => ['required', 'string', 'max:255'],
-            'usertype'=>['required','numeric', new Enum(UserType::class)],
+            'usertype'=>['required','numeric',new Enum(UserType::class)],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+
   
         $user = DB::transaction(function () use($request){
-            
            return User::create([
                 'username' => $request->username,
                 'email' => $request->email,

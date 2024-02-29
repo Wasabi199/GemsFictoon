@@ -27,7 +27,7 @@ return new class extends Migration
 
         Schema::create('following_users', function (Blueprint $table) {
             $table->foreignIdFor(User::class);
-            $table->foreignIdFor(User::class,'follower_id');
+            $table->foreignIdFor(User::class,'following_id');
         });
 
         Schema::create('follower_users', function (Blueprint $table) {

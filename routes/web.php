@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,25 +18,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
-})->name('welcome.welcome');
+Route::get('/', function () {
+    return Redirect::route('login');
+});
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+Route::prefix('reader')->middleware(['auth'])->group(function(){
+    Route::get('/welcome', function () {
+        return view('welcome');
+    })->name('welcome');
+    
 
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
+    Route::get('/account', function () {
+
+        return view('account',[
+           
+        ]);
+    })->name('account.account');
+});
 
 Route::get('/about', function () {
     return view('about');
 })->name('about.about');
-
-Route::get('/account', function () {
-    return view('account');
-})->name('account.account');
 
 Route::get('/library', function () {
     return view('library');
@@ -42,15 +48,12 @@ Route::get('/community', function () {
     return view('community');
 })->name('community.community');;
 
-Route::get('/welcome', function () {
-    return view('welcome');
-})->middleware(['auth', 'verified'])->name('welcome.welcome');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 
 Route::prefix('admin/')->group(function() {
