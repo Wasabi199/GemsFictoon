@@ -28,7 +28,7 @@ class AuthenticationController extends Controller
         }
 
         return response()->json([
-            'token' => $user->createToken($loginRequest->header('User-Agent'))->plainTextToken,
+            'authToken' => $user->createToken($loginRequest->header('User-Agent'))->plainTextToken,
         ]);
     }
 
@@ -44,8 +44,22 @@ class AuthenticationController extends Controller
                  'usertype'=>$validated_data['usertype']
              ]);
          });
+
         return response()->json([
             'message'=>'Registration Successful'
         ]);
+    }
+
+    public function checkAuth(Request $request)
+    {
+        if ($request->user() == null) {
+            return response()->json([
+                'status' => false,
+            ]);
+        } else {
+            return response()->json([
+                'status' => true,
+            ]);
+        }
     }
 }

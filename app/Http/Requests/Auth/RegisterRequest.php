@@ -27,7 +27,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'username' => ['required', 'string', 'max:255'],
-            'usertype'=>['required','numeric', new Enum(UserType::class)],
+            'usertype'=>['required','numeric'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Password::defaults()],
         ];

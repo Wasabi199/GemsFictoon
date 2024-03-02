@@ -15,4 +15,26 @@ class LandingPageController extends Controller
             'Books'=>Book::all()
         ]);
     }
+
+    public function getUserProfile(Request $request){
+        return response()->json([
+            'id'=>$request->user()->id,
+            'username'=>$request->user()->username,
+            'email'=>$request->user()->username,
+            'usertype'=>$request->user()->usertype,
+            'biography'=>$request->user()->biography,
+            'follower'=>$request->user()->follower,
+            'following'=>$request->user()->following
+        ]);
+    }
+
+    public function logout(Request $request)
+    {
+        $response = $request->user()->currentAccessToken()->delete();
+        return response()->json([
+            'status'=>$response
+        ]);
+
+        
+    }
 }
