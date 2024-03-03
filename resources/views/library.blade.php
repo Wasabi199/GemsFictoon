@@ -155,7 +155,7 @@
     <section class = "page">
         <div class = "navigation-area">
             <div class = "navigation-bar">
-                <h1><a href = "#" class = "web-name">GEM'S FICTOON</a></h1>
+                <h1><a href = "{{ route('welcome.welcome') }}" class = "web-name">GEM'S FICTOON</a></h1>
                 <ul>
                     <li><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
                     <li><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
