@@ -157,7 +157,7 @@
             <div class = "navigation-bar">
                 <h1><a href = "#" class = "web-name">GEM'S FICTOON</a></h1>
                 <ul>
-                    <li><a href = "{{ route('welcome') }}">HOME</a></li>
+                    <li><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
                     <li><a href = "{{ route('community.community') }}" class = "active">COMMUNITY</a></li>
                     <li><a href = "{{ route('library.library') }}">LIBRARY</a></li>
                     <li><a href = "{{ route('about.about') }}" >ABOUT</a></li>
