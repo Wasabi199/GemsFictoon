@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('login',[AuthenticationController::class,'login']);
-Route::post('mobile/register',[AuthenticationController::class,'register']);
+Route::post('mobile-register',[AuthenticationController::class,'register']);
 
 Route::middleware('auth:sanctum')->get('auth-check',[AuthenticationController::class,'checkAuth']);
 Route::middleware('auth:sanctum')->get('profile',[LandingPageController::class,'getUserProfile']);
