@@ -78,25 +78,43 @@
             color: skyblue;
             font-weight: bold;
         }
-        .container {
+        /*.container {
             width: 100%;
-            margin: auto;
-            min-height: 100vh;
-            
+            min-height: 50vh;
+            margin: 20px;
+            justify-content: center; 
+            position: relative;
+        }
+        .ques-box{
+            background-image: linear-gradient(darkblue, blue);
+            margin: 5px;
+            padding: 5px;
+            width: 80vw;
+            height: 18vh;
+            border-radius: 20px;
+            border: 3px solid black;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }*/
+        .container2 {
+            width: 100%;
+            height: 50vh;
+            margin: 20px; 
+            justify-content: center;
         }
         .dev-box{
             background-image: linear-gradient(darkblue, blue);
-            padding: 20px;
-            max-width: 30vw;
-            max-height: 24vh;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 5px;
+            padding: 5px;
+            width: 30vw;
+            height: 18vh;
             border-radius: 20px;
             border: 3px solid black;
-            justify-content: center;
-            text-align: justify;
-            display: block;
+            float: left;
         }
+        
         .dev-photo{
             background-color: black;
             margin: 10px;
@@ -106,6 +124,7 @@
             width: 100px;
             height: 100px;
             float: left;
+
         }
         h2{
             color: white;
@@ -120,7 +139,7 @@
         h4{
             color: white;
             font-family: Verdana;
-            text-align: left;
+            text-align: center;
             font-size: 18px;
         }
         .some-title{
@@ -178,39 +197,45 @@
                 </ul>
             </div>
         </div>
+        <!--
         <div class = "container">
             <br><br><br>
-        <h2 class = "some-title">DEVELOPERS</h2>
-        <div class = "dev-box">
-            <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
-            <h2>JOPET UMALI</h2>
-            <h4>Project Manager</h4>
+            <h2 class = "some-title">FAQs</h2>
+            <div class = "ques-box">
+                
+            </div>
         </div>
         <br>
-        <div class = "dev-box">
-            <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
-            <h2>JIANNE ROSAL</h2>
-            <h4>Frontend Developer</h4>
+    -->
+        <div class = "container2">
+            <h2 class = "some-title">DEVELOPERS</h2>
+            <div class = "dev-box">
+                <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
+                <h2>JOPET UMALI</h2>
+                <h4>Project Manager</h4>
+            </div>
+            <div class = "dev-box">
+                <img src = "img_srcs/jlr.jpg" alt = "dev pic" class = "dev-photo">
+                <h2>JIANNE ROSAL</h2>
+                <h4>Frontend Developer</h4>
+            </div>
+            <div class = "dev-box">
+                <img src = "img_srcs/lmbp.jpg" alt = "dev pic" class = "dev-photo">
+                <h2>LARA MAXINE PALMA</h2>
+                <h4>UI/UX Designer</h4>
+            </div>
+            <div class = "dev-box">
+                <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
+                <h2>MARCO GABRIEL ASIA</h2>
+                <h4>Web Developer</h4>
+            </div>
+            <div class = "dev-box">
+                <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
+                <h2>LANCH CABUANG</h2>
+                <h4>Mobile App Developer</h4>
+            </div>
+            <br><br><br>
         </div>
-        <br>
-        <div class = "dev-box">
-            <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
-            <h2>LARA MAXINE PALMA</h2>
-            <h4>UI/UX Designer</h4>
-        </div>
-        <br>
-        <div class = "dev-box">
-            <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
-            <h2>MARCO GABRIEL ASIA</h2>
-            <h4>Web Developer</h4>
-        </div>
-        <br>
-        <div class = "dev-box">
-            <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
-            <h2>LANCH CABUANG</h2>
-            <h4>Mobile App Developer</h4>
-        </div>
-        <br><br><br>
         <hr>
     </section>
 </body>

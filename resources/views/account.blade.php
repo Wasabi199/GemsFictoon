@@ -219,7 +219,7 @@
     <section class = "page">
         <div class = "navigation-area">
             <div class = "navigation-bar">
-                <h1><a href = "#" class = "web-name">GEM'S FICTOON</a></h1>
+                <h1><a href = "{{ route('welcome.welcome') }}" class = "web-name">GEM'S FICTOON</a></h1>
                 <ul>
                     <li><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
                     <li><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
@@ -242,11 +242,11 @@
         </div>
         <div class = "container-wrapper">
             <div class = "container">
-                <div class = "desc-box"><!--user profile db-->
+                <div class = "desc-box">
                     <div class = "user-photo">
                         <img :src={{Auth::user()->user_image_link}}/>
                     </div>
-                    <h2>{{Auth::user()->username}}</h2> <!--change this-->
+                    <h2>{{Auth::user()->username}}</h2> 
                     <h3>username</h3> <!--change this-->
                     <br>
                     <h4 class = "profile-section-name">BIO</h4>
@@ -255,8 +255,8 @@
                     </p>
                     <table>
                         <tr>
-                            <th><h3>{{Auth::user()->following}}</h3></th> <!--change this-->
-                            <th><h3>{{Auth::user()->follower}}</h3></th> <!--change this-->
+                            <th><h3>{{Auth::user()->following}}</h3></th> 
+                            <th><h3>{{Auth::user()->follower}}</h3></th> 
                         </tr>
                         <tr>
                             <td><h4>FOLLOWING</h4></td> <!--change this-->

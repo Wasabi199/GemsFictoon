@@ -36,6 +36,7 @@
             background-color: black;
             border-radius: 20px;
         }
+        /*Title texts*/
         h1{
             font-size: 30px;
             color: white;
@@ -45,6 +46,32 @@
             display: block;
             margin-left: 25px;
         }
+        h2{
+            color: white;
+            font-family: Verdana;
+        }
+        h3 {
+            color: black;
+            font-family: Verdana;
+            text-align: left;
+            font-size: 20px;
+        }
+        h4{
+            color: white;
+            font-family: Verdana;
+            text-align: left;
+            font-size: 18px;
+        }
+        h3.footer-title{
+            color: white;
+            font-family: Verdana;
+            text-align: center;
+            font-size: 20px;
+        }
+        .footer-text {
+            text-align: center;
+        }
+        /*Listing*/
         ul{
             list-style-type: none;
             margin-top: 2%;
@@ -59,6 +86,7 @@
             text-align: center;
             justify-content: center;
         }
+        /*Links*/
         a{
             text-decoration: none;
             color: white;
@@ -78,6 +106,7 @@
             color: skyblue;
             font-weight: bold;
         }
+        /*main content*/
         .container {
             width: 100%;
             margin: auto;
@@ -123,20 +152,12 @@
             color: darkblue;
             cursor: pointer;
         }
-        h2{
-            color: white;
-            font-family: Verdana;
-        }
-        h3 {
-            color: white;
-            font-family: Verdana;
-            text-align: center;
-            font-size: 18px;
-        }
+        
         p{
             color: white;
             font-family: Verdana;
         }
+        /*footer*/
         footer {
             background-color: black;
             color: #fff;
@@ -145,9 +166,66 @@
             bottom: 0;
             width: 100%;
         }
-        .footer-text {
+        
+        /*group sections*/
+        .public-group-sec{
+            margin-top: 8%;
+            padding: 20px;
+            float: left;
+            width: 50%;
+            height: 100vh;
+        }
+        .created-group{
+            width: 80%;
+            height: 40px;
+            border: 2px solid black;
+            border-radius: 20px;
+            padding: 10px;
+            margin: 10px;
+            text-align: justify;
+        }
+        .public-groups {
+            width: 90%;
+            min-height: 20vh;
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 20px;
+            background-image: linear-gradient(darkblue, blue);
+        }
+        .join-button, .close-button, .view-details {
+            background-color: black;
+            color: white;
+            font-family: Verdana;
+            font-size: 16px;
+            border: 2px solid blue;
             text-align: center;
-            padding: 5px;
+            padding: 2px;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 20px;
+            padding: 10px; 
+            cursor: pointer;
+        }
+        .join.button:hover, .close-button:hover {
+            background-color: white;
+            color: darkblue;
+            cursor: pointer;
+        }
+        .details-popup {
+            display: none;
+            position: fixed;
+            justify-content: center;
+        }
+        .view-details-container{
+            width: 20vw;
+            height: 20vh;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 20px;
+            background-color: lightblue;
+            color: black;
+            margin: 20px;
+            
         }
     </style>
 </head>
@@ -155,7 +233,7 @@
     <section class = "page">
         <div class = "navigation-area">
             <div class = "navigation-bar">
-                <h1><a href = "#" class = "web-name">GEM'S FICTOON</a></h1>
+                <h1><a href = "{{ route('welcome.welcome') }}" class = "web-name">GEM'S FICTOON</a></h1>
                 <ul>
                     <li><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
                     <li><a href = "{{ route('community.community') }}" class = "active">COMMUNITY</a></li>
@@ -176,10 +254,73 @@
                 </ul>
             </div>
         </div>
+        <!-- listing of public groups-->
+        <div class = "public-group-sec">
+            <h3>PUBLIC GROUPS</h3>
+            <!--For each, getting created group from users-->
+            <table class = "public-groups">
+                <!--iterate table row-->
+                <tr class = "created-group">
+                    <td class = "group-info">
+                        <h4>GROUP NAME</h4> <!-- get data from user(group creator)-->
+                        <p>group name description/introduction</p>
+                        <button type = "button" class = "view-details" onClick = "viewDetails()">View Details</button>
+
+                        <div class = "details-popup" id = "detailForm">
+                            <form action = "/community.blade.php" class = "view-details-container">
+                                <h4><font color = "black">GROUP NAME</font></h4>
+                                <p><font color = "black">group name description/introduction</font></p>
+                                <button type = "submit" class = "join-button">Join Group</button>
+                                <button type = "button" class = "close-button" onClick = "closeDetails()">Close</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class = "public-group-sec">
+            <h3>PRIVATE GROUPS</h3>
+            <!--For each, getting created group from users-->
+            <table class = "public-groups">
+                <!--iterate table row-->
+                <tr class = "created-group">
+                    <td class = "group-info">
+                        <h4>GROUP NAME</h4> <!-- get data from user(group creator)-->
+                        <p>group name description/introduction</p>
+                        <button type = "button" class = "view-details" onClick = "viewPrivDetails()">View Details</button>
+
+                        <div class = "details-popup" id = "detailPrivForm">
+                            <form action = "/community.blade.php" class = "view-details-container">
+                            <h4><font color = "black">GROUP NAME</font></h4>
+                                <p><font color = "black">group name description/introduction</font></p>
+                                <button type = "submit" class = "join-button">Request to Join</button>
+                                <button type = "button" class = "close-button" onClick = "closePrivDetails()">Close</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </section>
+<script>
+    function viewDetails() {
+    document.getElementById("detailForm").style.display = "block";
+    }
+    function viewPrivDetails() {
+    document.getElementById("detailPrivForm").style.display = "block";
+    }
+
+    function closeDetails() {
+        document.getElementById("detailForm").style.display = "none";
+    }
+    function closePrivDetails() {
+        document.getElementById("detailPrivForm").style.display = "none";
+    }
+</script>
 </body>
 <footer>
-        <h3> GEM'S FICTOON </h3>
+        <h3 class = "footer-title"> GEM'S FICTOON </h3>
         <p class = "footer-text">All rights reserved.</p>
 </footer>
 </html>

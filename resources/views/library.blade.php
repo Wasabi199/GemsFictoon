@@ -133,9 +133,49 @@
             text-align: center;
             font-size: 18px;
         }
+        h4 {
+            color: black;
+            font-family: Verdana;
+            padding-left: 30px;
+            font-size: 24px;
+
+        }
         p{
             color: white;
             font-family: Verdana;
+        }
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            margin: 20px;
+            top: 10%;
+            justify-content: center; 
+            display: block;
+            margin-top: 8%;
+        }
+        .story-container{
+            background-image: linear-gradient(darkblue, blue);
+            margin: 5px;
+            padding: 5px;
+            width: 90vw;
+            min-height: 32vh;
+            border-radius: 20px;
+            border: 3px solid black;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button.genre-container{
+            float: left;
+            height: 30vh;
+            width: 20%;
+            border: 3px solid black;
+            border-radius: 20px;
+            margin: 10px;
+            background-image: linear-gradient("gray, lightgray");
+            text-align: left;
+            font-family: Verdana;
+            font-size: 18px;
         }
         footer {
             background-color: black;
@@ -155,7 +195,7 @@
     <section class = "page">
         <div class = "navigation-area">
             <div class = "navigation-bar">
-                <h1><a href = "#" class = "web-name">GEM'S FICTOON</a></h1>
+                <h1><a href = "{{ route('welcome.welcome') }}" class = "web-name">GEM'S FICTOON</a></h1>
                 <ul>
                     <li><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
                     <li><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
@@ -176,7 +216,28 @@
                 </ul>
             </div>
         </div>
+        <div class = "container">
+            <h4>Top Story</h4>
+            <div class = "story-container">
+                <!-- insert highest likes story-->
+            </div>
+            <h4>Genres</h4>
+            <div class = "story-container">
+                <button type = "button" class = "genre-container" onClick = "openRomance()">ROMANCE</button>
+                <button type = "button" class = "genre-container" onClick = "openAction()">ACTION</button>
+                <button type = "button" class = "genre-container" onClick = "openHorror()">HORROR</button>
+                <button type = "button" class = "genre-container" onClick = "openComedy()">COMEDY</button>
+            </div>
+        </div>
     </section>
+<script>
+    function openRomance() {
+
+    }
+    function openAction() {
+        
+    }
+</script>
 </body>
 <footer>
         <h3> GEM'S FICTOON </h3>
