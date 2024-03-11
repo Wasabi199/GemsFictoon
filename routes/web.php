@@ -48,6 +48,10 @@ Route::get('/library', function () {
 })->name('library.library');;
 
 
+Route::get('book-title', function () {
+    return view('Bookttitle');
+})->name('book');;
+
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
