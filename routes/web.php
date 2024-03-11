@@ -27,7 +27,10 @@ Route::prefix('reader')->middleware(['auth'])->group(function(){
         return view('welcome');
     })->name('welcome.welcome');
     
-
+    Route::get('/community', function () {
+        return view('community');
+    })->name('community.community');;
+    
     Route::get('/account', function () {
 
         return view('account',[
@@ -44,9 +47,6 @@ Route::get('/library', function () {
     return view('library');
 })->name('library.library');;
 
-Route::get('/community', function () {
-    return view('community');
-})->name('community.community');;
 
 
 // Route::middleware('auth')->group(function () {

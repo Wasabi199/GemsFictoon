@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Enums\UserType;
+use App\Models\Group;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -36,5 +37,6 @@ class DatabaseSeeder extends Seeder
             $user->followerUser()->attach(User::inRandomOrder()->first()->id);
         }
 
+        Group::factory(5)->create();
     }
 }
