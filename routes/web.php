@@ -48,6 +48,10 @@ Route::get('/community', function () {
     return view('community');
 })->name('community.community');;
 
+Route::get('book-title', function () {
+    return view('Bookttitle');
+})->name('book');;
+
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
