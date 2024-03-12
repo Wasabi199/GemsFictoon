@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="img_srcs/gem.png" type="image/x-icon">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <title>Gem's Fictoon</title>
 
     <style>
@@ -230,11 +232,11 @@
                         <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
-                        <x-responsive-nav-link :href="route('logout')"
+                        <a :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
                             {{ __('LOG OUT') }}
-                        </x-responsive-nav-link>
+                        </a>
                         </form>
                     </li>
                 </ul>
@@ -268,25 +270,27 @@
             </div>
             <div class = "container-2">
                 <div class = "desc-box">
-                    <h2>SHELF</h2>
+                    <div class="flex justify-between">
+                        <h2 class="font-bold">SHELF</h2>
+                        <a href="{{route('book.create')}}" class="px-4 py-2 text-gray-100 rounded-md cursor-pointer bg-slate-900">Create A Book</a>
+                    </div>
                     <table class ="shelf">
-                        <!--shelf db-->
-                        <tr class = "shelf-name">
-                            <td class = "shelf-name"><h4>SHELF 1</h4></td>
-                            <td class = "shelf-name"><h4>SHELF 2</h4></td>
-                        </tr>
-                        <tr class = "shelf-name">
-                            <td class = "shelf-content"></td> <!--insert user shelf data-->
-                            <td class = "shelf-content"></td>
-                        </tr>
-                        <tr class = "shelf-name">
-                            <td class = "shelf-name"><h4>SHELF 3</h4></td>
-                            <td class = "shelf-name"><h4>SHELF 4</h4></td>
-                        </tr>
-                        <tr class = "shelf-name">
-                            <td class = "shelf-content"></td> <!--insert user shelf data-->
-                            <td class = "shelf-content"></td>
-                        </tr>
+                        @foreach ($books as $book)
+                        <tr class="cursor-pointer">
+                                <td>
+                                    <img height="250px" width="250px" src="{{URL::to('/').'/storage/'.$book->image}}"/>
+                                </td>
+                                <td class="text-start">
+                                    <div class="w-full h-fit text-start">
+                                        <div class="text-lg font-bold text-white">{{$book->title}}</div>
+                                        <div class="text-white ">{{$book->summary}}</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a class="px-4 py-2 text-gray-100 rounded-md cursor-pointer bg-slate-900" href="{{route('book.profile',$book->id)}}">View</a>
+                                </td>
+                            </tr>
+                            @endforeach
                     </table>
                 </div>
             </div>
@@ -297,4 +301,7 @@
         <h3> GEM'S FICTOON </h3>
         <p class = "footer-text">All rights reserved.</p>
 </footer>
+@props([
+    'books'
+])
 </html>

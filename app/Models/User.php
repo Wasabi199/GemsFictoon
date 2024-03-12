@@ -76,7 +76,12 @@ class User extends Authenticatable
      * |Relationships
      * |______________________________________________________________________________________________________
      */
-    public function nicknames():HasMany
+    public function books():HasMany
+    {
+        return $this->hasMany(Book::class);
+    }
+
+     public function nicknames():HasMany
     {
         return $this->hasMany(Nickname::class);
     }

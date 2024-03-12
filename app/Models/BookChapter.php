@@ -12,7 +12,7 @@ class BookChapter extends Model
 
     protected $fillable = [
         'title',
-        'contents'
+        'content'
     ];
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Book;
 
+use App\Enums\UserType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,7 @@ class BookCreateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return Auth::user()->usertype == 2;
+        return true;
     }
 
     /**
@@ -26,6 +27,7 @@ class BookCreateRequest extends FormRequest
             'title'=>['required', 'string'],
             'summary'=>['required', 'string'],
             'genre'=>['required', 'numeric'],
+            'category'=>['required', 'numeric'],
             'image'=>['nullable', 'file']
         ];
     }
