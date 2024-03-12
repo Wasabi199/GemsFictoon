@@ -199,7 +199,6 @@
             background-color: gray;
             border-radius: 20px;
             height: 20vh;
-            
         }
         footer {
             background-color: black;

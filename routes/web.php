@@ -46,7 +46,15 @@ Route::get('/library', function () {
 
 Route::get('/community', function () {
     return view('community');
-})->name('community.community');;
+})->name('community.community');
+
+Route::get('/privategroups', function () {
+    return view('privategroups');
+})->name('privategroups');
+
+Route::get('/publicgroups', function () {
+    return view('publicgroups');
+})->name('publicgroups');
 
 
 // Route::middleware('auth')->group(function () {
