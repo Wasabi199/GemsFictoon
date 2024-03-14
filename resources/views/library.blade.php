@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="img_srcs/gem.png" type="image/x-icon">
     <title>Gem's Fictoon</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <style>
-        body{
+        body {
             width: 100%;
             height: 100vh;
             margin: auto;
             padding: 0;
             background-color: lightgray;
         }
-        .page{
+
+        .page {
             width: 100%;
             height: 100vh;
             margin: auto;
             padding: 0;
             display: flex;
         }
-        .navigation-area{
+
+        .navigation-area {
             height: 100px;
             width: 100%;
             padding: 2px;
             margin: 2px;
             position: fixed;
         }
-        .navigation-bar{
+
+        .navigation-bar {
             position: fixed;
             top: 2;
             margin: auto;
@@ -36,7 +42,8 @@
             background-color: black;
             border-radius: 20px;
         }
-        h1{
+
+        h1 {
             font-size: 30px;
             color: white;
             font-family: Verdana;
@@ -45,45 +52,54 @@
             display: block;
             margin-left: 25px;
         }
-        ul{
+
+        ul {
             list-style-type: none;
             margin-top: 2%;
             margin-bottom: 2%;
             overflow: hidden;
             padding-left: 42%;
         }
-        li{
+
+        li {
             float: left;
             color: white;
             padding-right: 10px;
             text-align: center;
             justify-content: center;
         }
-        a{
+
+        a {
             text-decoration: none;
             color: white;
             font-family: Verdana;
         }
-        li a:hover{
+
+        li a:hover {
             color: lightblue;
             font-weight: bold;
         }
-        li a{    
+
+        li a {
             padding: 6px;
         }
+
         .web-name:hover {
             color: skyblue;
         }
-        .active{
+
+        .active {
             color: skyblue;
             font-weight: bold;
         }
+
         .container {
             width: 100%;
             margin: auto;
             min-height: 100vh;
         }
-        .desc-box{
+
+        .desc-box {
             background-image: linear-gradient(darkblue, blue);
             padding: 26px;
             max-width: 50vw;
@@ -95,7 +111,8 @@
             justify-content: center;
             text-align: justify;
         }
-        .gem-photo{
+
+        .gem-photo {
             background-color: black;
             margin: 10px;
             margin-right: 30px;
@@ -105,7 +122,8 @@
             height: 100px;
             float: left;
         }
-        .info{
+
+        .info {
             background-color: black;
             color: white;
             font-family: Verdana;
@@ -116,23 +134,27 @@
             text-decoration: none;
             display: inline-block;
             border-radius: 20px;
-            padding: 10px;          
+            padding: 10px;
         }
-        .info:hover{
+
+        .info:hover {
             background-color: white;
             color: darkblue;
             cursor: pointer;
         }
-        h2{
+
+        h2 {
             color: white;
             font-family: Verdana;
         }
+
         h3 {
             color: white;
             font-family: Verdana;
             text-align: center;
             font-size: 18px;
         }
+
         h4 {
             color: black;
             font-family: Verdana;
@@ -140,32 +162,36 @@
             font-size: 24px;
 
         }
-        p{
+
+        p {
             color: white;
             font-family: Verdana;
         }
+
         .container {
             width: 100%;
             min-height: 100vh;
             margin: 20px;
             top: 10%;
-            justify-content: center; 
+            justify-content: center;
             display: block;
             margin-top: 8%;
         }
-        .story-container{
+
+        .story-container {
             background-image: linear-gradient(darkblue, blue);
             margin: 5px;
             padding: 5px;
             width: 90vw;
-            min-height: 32vh;
+            /* min-height: 32vh; */
             border-radius: 20px;
             border: 3px solid black;
-            text-align: center;
+            /* text-align: center; */
             margin-left: auto;
             margin-right: auto;
         }
-        button.genre-container{
+
+        button.genre-container {
             float: left;
             height: 30vh;
             width: 20%;
@@ -177,6 +203,7 @@
             font-family: Verdana;
             font-size: 18px;
         }
+
         footer {
             background-color: black;
             color: #fff;
@@ -185,12 +212,14 @@
             bottom: 0;
             width: 100%;
         }
+
         .footer-text {
             text-align: center;
             padding: 5px;
         }
     </style>
 </head>
+
 <body>
     <section class = "page">
         <div class = "navigation-area">
@@ -200,17 +229,17 @@
                     <li><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
                     <li><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
                     <li><a href = "{{ route('library.library') }}" class = "active">LIBRARY</a></li>
-                    <li><a href = "{{ route('about.about') }}" >ABOUT</a></li>
-                    <li><a href = "{{ route('account.account') }}" >ACCOUNT</a></li>
+                    <li><a href = "{{ route('about.about') }}">ABOUT</a></li>
+                    <li><a href = "{{ route('account.account') }}">ACCOUNT</a></li>
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
-                        @csrf
+                            @csrf
 
-                        <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                            <x-responsive-nav-link :href="route('logout')"
+                                onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                            {{ __('LOG OUT') }}
-                        </x-responsive-nav-link>
+                                {{ __('LOG OUT') }}
+                            </x-responsive-nav-link>
                         </form>
                     </li>
                 </ul>
@@ -218,29 +247,49 @@
         </div>
         <div class = "container">
             <h4>Top Story</h4>
-            <div class = "story-container">
-                <!-- insert highest likes story-->
+            <div class = "flex justify-around story-container">
+                @foreach ($books as $book)
+                    <a href="{{ route('book.profile', $book->id) }}">
+                        <div class="p-10">
+                            <img class="w-52" src="{{ $book->image }}" />
+                        </div>
+                    </a>
+                @endforeach
             </div>
             <h4>Genres</h4>
             <div class = "story-container">
-                <button type = "button" class = "genre-container" onClick = "openRomance()">ROMANCE</button>
-                <button type = "button" class = "genre-container" onClick = "openAction()">ACTION</button>
-                <button type = "button" class = "genre-container" onClick = "openHorror()">HORROR</button>
-                <button type = "button" class = "genre-container" onClick = "openComedy()">COMEDY</button>
+                @foreach ($genre as $gen)
+                    <div>
+                        <div class="p-5 text-lg font-bold text-white">{{ $gen->title }}</div>
+                        <div class="grid grid-cols-5 gap-4 p-5">
+                            @foreach ($gen->book as $book)
+                                <a href="{{ route('book.profile', $book->id) }}">
+                                    <div>
+                                        <img class="w-52" src="{{ $book->image }}" />
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
+        </div>
     </section>
-<script>
-    function openRomance() {
+    <script>
+        function openRomance() {
 
-    }
-    function openAction() {
-        
-    }
-</script>
+        }
+
+        function openAction() {
+
+        }
+    </script>
 </body>
 <footer>
-        <h3> GEM'S FICTOON </h3>
-        <p class = "footer-text">All rights reserved.</p>
+    <h3> GEM'S FICTOON </h3>
+    <p class = "footer-text">All rights reserved.</p>
 </footer>
+@props(['books', 'genre'])
+
 </html>

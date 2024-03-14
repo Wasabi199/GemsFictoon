@@ -35,14 +35,27 @@
                 <tr>
                     <thead>
                         <th class="text-start 2xl">Table of Contents</th>
-                        <th><a href="{{route('create.book.chapter',$book->id)}}" class="px-4 py-2 text-gray-100 rounded-md bg-slate-900">Create</a></th>
+                        @if (Auth::user()->id == $book->user_id)
+                        <th class="flex justify-end px-5">
+                            <a href="{{route('create.book.chapter',$book->id)}}" class="px-4 py-2 text-gray-100 rounded-md bg-slate-900">Create</a></th>
+                        @endif
                     </thead>
                 </tr>
                 @foreach ($book->bookChapters as $chapter)         
                 <tr>
                     <tbody>
-                        <td>{{$chapter->title}}</td>
-                        <td><a href="{{route('chapter.read', $chapter->id)}}">Read</a></td>
+                        <td class="text-lg font-bold">{{$chapter->title}}</td>
+                        <td class="flex justify-end gap-4 p-5">
+                            <a class="px-4 py-2 text-white bg-green-400 rounded-md" href="{{route('chapter.read', $chapter->id)}}">Read</a>
+                            <a class="px-4 py-2 text-white bg-blue-400 rounded-md" href="{{route('update.book.chapter', $chapter->id)}}">Update</a>
+                            <form method="POST" action="{{route('chapter.delete')}}">
+                                @csrf
+                                @method('DELETE')
+                                <input type="number" hidden name="id" value="{{$chapter->id}}">
+                                <input class="px-4 py-2 text-white bg-red-400 rounded-md" type="submit" value="Delete">
+                            </form>
+
+                        </td>
                     </tbody>
                 </tr>
                 @endforeach
@@ -53,3 +66,8 @@
 
     @props(['book'])
 </x-app-layout>
+<script>
+    function delete($id){
+        
+    }
+</script>

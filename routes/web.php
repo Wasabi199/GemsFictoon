@@ -54,15 +54,28 @@ Route::prefix('reader')->middleware(['auth'])->group(function () {
     Route::post('create-book-chapter/submit',[BookController::class,'createChapterSubmit'])->name('create.book.chapter.submit');
 
     Route::get('chapter-read/{id}',[BookController::class,'chapterProfile'])->name('chapter.read');
+
+    Route::delete('chapter-delete',[BookController::class,'deleteChapter'])->name('chapter.delete');
+
+    Route::get('update-book-chapter/{id}',[BookController::class,'updateChapter'])->name('update.book.chapter');
+    Route::post('submit-update-book-chapter/{id}',[BookController::class,'update'])->name('update.book.chapter.submit');
+
+
+    Route::get('/library', function () {
+        $books = Book::inRandomOrder()->limit(5)->get();
+        $genre = Genre::with('book')->get();
+        return view('library',[
+            'books'=>$books,
+            'genre'=>$genre
+        ]);
+    })->name('library.library');;
+    
+    
 });
 
 Route::get('/about', function () {
     return view('about');
 })->name('about.about');
-
-Route::get('/library', function () {
-    return view('library');
-})->name('library.library');;
 
 
 Route::get('book-title', function () {

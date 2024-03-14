@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\Console\Input\Input;
 
 class BookController extends Controller
 {
@@ -82,4 +83,34 @@ class BookController extends Controller
             'chapter'=>$chapter
         ]);
     }
+
+    public function deleteChapter(Request $request){
+        $chapter = BookChapter::findOrFail($request->id);
+        $chapter->delete();
+        return Redirect::route('welcome.welcome')->with('message', 'Book Deleted Successfully');
+    }
+
+    public function updateChapter($id){
+        $chapter = BookChapter::findOrFail($id);
+        $book = Book::find($chapter->book_id);
+
+        return view('UpdateBookChapter',[
+            'book'=>$book,
+            'chapter'=>$chapter
+        ]);
+    }
+
+    public function update(ChapterCreateRequest $request, int $id){
+        $validated_data = $request->validated();
+        $chapter = BookChapter::findOrFail($id);
+        $chapter->update([
+            'title'=>$validated_data['title'],
+            'content'=>$validated_data['body']
+        ]);
+
+        return Redirect::route('welcome.welcome')->with('message', 'Book Updated Successfully');
+
+    }
+
+
 }

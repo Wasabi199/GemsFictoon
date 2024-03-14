@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Enums\UserType;
+use App\Models\Book;
 use App\Models\Category;
 use App\Models\Genre;
 use App\Models\Group;
@@ -67,5 +68,6 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        Book::factory(20)->create();
     }
 }
