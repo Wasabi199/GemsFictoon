@@ -354,4 +354,3 @@
         <p class = "footer-text">All rights reserved.</p>
 </footer>
 </html>
-
