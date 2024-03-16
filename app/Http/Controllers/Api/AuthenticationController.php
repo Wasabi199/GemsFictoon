@@ -37,7 +37,7 @@ class AuthenticationController extends Controller
         $validated_data = $request->validated();
 
         DB::transaction(function () use($validated_data){    
-            return User::create([
+            User::create([
                  'username' => $validated_data['username'],
                  'email' => $validated_data['email'],
                  'password' => Hash::make($validated_data['password']),

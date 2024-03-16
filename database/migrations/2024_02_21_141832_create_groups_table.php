@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedInteger('type')->index()->comment(GroupType::class);
+            $table->longText('introduction')->nullable();
             $table->timestamps();
         });
 

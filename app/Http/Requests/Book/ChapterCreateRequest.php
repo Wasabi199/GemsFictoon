@@ -12,7 +12,7 @@ class ChapterCreateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return Auth::user()->usertype==2;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class ChapterCreateRequest extends FormRequest
         return [
             'id'=>['required','numeric','exists:books,id'],
             'title'=>['required','string'],
-            'contents'=>['required','string']
+            'body'=>['required','string']
         ];
     }
 }

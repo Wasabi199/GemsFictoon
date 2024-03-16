@@ -13,7 +13,8 @@ class Group extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'type'
+        'type',
+        'introduction'
     ];
 
     protected $cast = [

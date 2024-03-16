@@ -268,7 +268,7 @@
             <h2 class = "some-title">DEVELOPERS</h2>
             <div class = "container">
                 <div class = "dev-box">
-                    <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
+                    <img src = "img_srcs/jopetU.jpg" alt = "dev pic" class = "dev-photo">
                     <h2>JOPET UMALI</h2>
                     <h4>Project Manager</h4>
                 </div>
@@ -285,12 +285,12 @@
             </div>
             <div class = "container2">
                 <div class = "dev-box">
-                    <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
+                    <img src = "img_srcs/marcoA.jpg" alt = "dev pic" class = "dev-photo">
                     <h2>MARCO GABRIEL ASIA</h2>
                     <h4>Web Developer</h4>
                 </div>
                 <div class = "dev-box">
-                    <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
+                    <img src = "img_srcs/LanchC.jpeg" alt = "dev pic" class = "dev-photo">
                     <h2>LANCH CABUANG</h2>
                     <h4>Mobile App Developer</h4>
                 </div>

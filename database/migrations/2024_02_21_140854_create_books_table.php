@@ -18,10 +18,12 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(User::class);
             $table->string('title');
             $table->longText('summary');
             $table->foreignIdFor(Genre::class);
-            $table->string('image');
+            $table->foreignIdFor(Category::class);
+            $table->string('image')->nullable();
             $table->timestamps();
         });
 

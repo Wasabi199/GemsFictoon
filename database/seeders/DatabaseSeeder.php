@@ -5,6 +5,10 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Enums\UserType;
+use App\Models\Book;
+use App\Models\Category;
+use App\Models\Genre;
+use App\Models\Group;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -36,5 +40,34 @@ class DatabaseSeeder extends Seeder
             $user->followerUser()->attach(User::inRandomOrder()->first()->id);
         }
 
+        Group::factory(5)->create();
+
+
+        $genre =[
+            'Romance',
+            'Action',
+            'Comedy',
+            'Horror'
+        ];
+
+        foreach($genre as $g){
+            Genre::create([
+                'title'=>$g
+            ]);
+        }
+
+        
+        $category =[
+            'Novel',
+            'Short Story'
+        ];
+
+        foreach($category as $c){
+            Category::create([
+                'title'=>$c
+            ]);
+        }
+
+        Book::factory(20)->create();
     }
 }

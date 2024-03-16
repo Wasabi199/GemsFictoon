@@ -30,6 +30,7 @@ class RegisterRequest extends FormRequest
             'usertype'=>['required','numeric'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Password::defaults()],
+            
         ];
     }
 }
