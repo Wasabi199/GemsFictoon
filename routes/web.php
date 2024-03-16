@@ -56,6 +56,10 @@ Route::get('/publicgroups', function () {
     return view('publicgroups');
 })->name('publicgroups');
 
+Route::get('/editprofile', function () {
+    return view('editprofile');
+})->name('editprofile');
+
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

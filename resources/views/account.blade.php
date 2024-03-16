@@ -141,6 +141,9 @@
             color: darkblue;
             cursor: pointer;
         }
+        .editprofile-btn:hover{
+            color: darkblue;
+        }
         h2{
             color: white;
             font-family: Verdana;
@@ -262,7 +265,7 @@
                             <td><h4>FOLLOWERS</h4></td> <!--change this-->
                         </tr>
                     </table>
-                    <button type = "button" class = "info">Edit Profile</button>
+                    <button type = "button" class = "info"><a href = "{{ route('editprofile') }}" class = "editprofile-btn">Edit Profile</button>
                 </div>
             </div>
             <div class = "container-2">
@@ -273,14 +276,6 @@
                         <tr class = "shelf-name">
                             <td class = "shelf-name"><h4>SHELF 1</h4></td>
                             <td class = "shelf-name"><h4>SHELF 2</h4></td>
-                        </tr>
-                        <tr class = "shelf-name">
-                            <td class = "shelf-content"></td> <!--insert user shelf data-->
-                            <td class = "shelf-content"></td>
-                        </tr>
-                        <tr class = "shelf-name">
-                            <td class = "shelf-name"><h4>SHELF 3</h4></td>
-                            <td class = "shelf-name"><h4>SHELF 4</h4></td>
                         </tr>
                         <tr class = "shelf-name">
                             <td class = "shelf-content"></td> <!--insert user shelf data-->

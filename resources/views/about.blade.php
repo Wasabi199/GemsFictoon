@@ -14,13 +14,15 @@
             padding: 0;
             background-color: lightgray;
         }
+        section{
+            min-height: 100vh;
+        }
         .page{
-            wwidth: 100%;
-            height: 100vh;
+            width: 100%;
             margin: auto;
             padding: 0;
             display: flex;
-            padding-bottom: 20%;
+            padding-bottom: 10%;
         }
         .navigation-area{
             height: 100px;
@@ -288,9 +290,9 @@
                     <h4>Web Developer</h4>
                 </div>
                 <div class = "dev-box">
-                        <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
-                        <h2>LANCH CABUANG</h2>
-                        <h4>Mobile App Developer</h4>
+                    <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
+                    <h2>LANCH CABUANG</h2>
+                    <h4>Mobile App Developer</h4>
                 </div>
             </div>
         </div>
