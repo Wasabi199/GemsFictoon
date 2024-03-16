@@ -285,7 +285,7 @@
                     <div class="flex justify-between">
                         <h2 class="font-bold">SHELF</h2>
                         <a href="{{route('book.create')}}" class="px-4 py-2 text-gray-100 rounded-md cursor-pointer bg-slate-900">Create A Book</a>
-                    </div>
+                    </div> 
                     <table class ="shelf">
                         @foreach ($books as $book)
                         <tr class="cursor-pointer">
