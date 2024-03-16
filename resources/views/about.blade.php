@@ -15,11 +15,12 @@
             background-color: lightgray;
         }
         .page{
-            width: 100%;
+            wwidth: 100%;
             height: 100vh;
             margin: auto;
             padding: 0;
             display: flex;
+            padding-bottom: 20%;
         }
         .navigation-area{
             height: 100px;
@@ -78,31 +79,48 @@
             color: skyblue;
             font-weight: bold;
         }
-        /*.container {
+        .container {
             width: 100%;
-            min-height: 50vh;
+            min-height: 20vh;
             margin: 20px;
             justify-content: center; 
-            position: relative;
+            text-align: center;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .container2 {
+            width: 100%;
+            min-height: 20vh;
+            margin: 20px;
+            justify-content: center; 
+            text-align: center;
+            float: center;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
         }
         .ques-box{
             background-image: linear-gradient(darkblue, blue);
             margin: 5px;
-            padding: 5px;
-            width: 80vw;
-            height: 18vh;
+            padding: 20px;
+            width: 70vw;
+            min-height: 18vh;
             border-radius: 20px;
             border: 3px solid black;
-            text-align: center;
             margin-left: auto;
             margin-right: auto;
-            display: block;
-        }*/
-        .container2 {
+            display: inline-block;
+            
+        } 
+        .con-container {
             width: 100%;
-            height: 50vh;
-            margin: 20px; 
-            justify-content: center;
+            min-height: 100vh;
+            margin: 20px;
+            justify-content: center; 
+        }
+        hr{
+            border: 1px solid gray;
         }
         .dev-box{
             background-image: linear-gradient(darkblue, blue);
@@ -112,7 +130,6 @@
             height: 18vh;
             border-radius: 20px;
             border: 3px solid black;
-            float: left;
         }
         
         .dev-photo{
@@ -154,9 +171,24 @@
             text-align: center;
             font-size: 18px;
         }
+        .question{
+            display: flex;
+            padding-left: 20px;
+        }
+        ol{
+            font-family: Verdana;
+            font-size: 16px;
+            list-style-type: disc;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+        }
         p{
             color: white;
             font-family: Verdana;
+        }
+        .answer{
+            text-align: justify;
         }
         footer {
             background-color: black;
@@ -197,46 +229,71 @@
                 </ul>
             </div>
         </div>
-        <!--
-        <div class = "container">
+        <div class = "con-container">
             <br><br><br>
             <h2 class = "some-title">FAQs</h2>
-            <div class = "ques-box">
+            <div class = "container">
+                <br><br><br>
                 
+                <div class = "ques-box">
+                    <h4 class = "question">WHAT IS GEM'S FICTOON?</h4>
+                    <ol>
+                        <li class = "answer">Gem's Fictoon is a web and mobile digital library featuring an original fictional
+                            character of ours.
+                        </li>
+                    </ol>
+                    <br>
+                    <h4 class = "question">WHY "GEM" OF ALL NAMES?</h4>
+                    <ol>
+                        <li class = "answer">We believe that every writing of an author is a treasured gem; meaning, well-made,
+                            eye-catching, and valuable.
+                        </li>
+                    </ol>
+                    <br>
+                    <h4 class = "question">WHY DID YOU COME UP OF THIS TYPE OF PROJECT?</h4>
+                    <ol>
+                        <li class = "answer">There are so many social media platforms that authors can post their works to. However, 
+                            we cannot assure that they will reach their target readers. As for the real-life 
+                            experiences of our known amateur authors, they feel a little discouraged at times whenever 
+                            they encounter unsafe environment where their works are unfairly unappreciated. With this 
+                            project of ours, we aim to provide a safer and gentle community for those who share the same 
+                            interests.
+                        </li>
+                    </ol>
+                </div>
             </div>
-        </div>
-        <br>
-    -->
-        <div class = "container2">
+            <hr>
             <h2 class = "some-title">DEVELOPERS</h2>
-            <div class = "dev-box">
-                <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
-                <h2>JOPET UMALI</h2>
-                <h4>Project Manager</h4>
+            <div class = "container">
+                <div class = "dev-box">
+                    <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
+                    <h2>JOPET UMALI</h2>
+                    <h4>Project Manager</h4>
+                </div>
+                <div class = "dev-box">
+                    <img src = "img_srcs/jlr.jpg" alt = "dev pic" class = "dev-photo">
+                    <h2>JIANNE ROSAL</h2>
+                    <h4>Frontend Developer</h4>
+                </div>
+                <div class = "dev-box">
+                    <img src = "img_srcs/lmbp.jpg" alt = "dev pic" class = "dev-photo">
+                    <h2>LARA MAXINE PALMA</h2>
+                    <h4>UI/UX Designer</h4>
+                </div>
             </div>
-            <div class = "dev-box">
-                <img src = "img_srcs/jlr.jpg" alt = "dev pic" class = "dev-photo">
-                <h2>JIANNE ROSAL</h2>
-                <h4>Frontend Developer</h4>
+            <div class = "container2">
+                <div class = "dev-box">
+                    <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
+                    <h2>MARCO GABRIEL ASIA</h2>
+                    <h4>Web Developer</h4>
+                </div>
+                <div class = "dev-box">
+                        <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
+                        <h2>LANCH CABUANG</h2>
+                        <h4>Mobile App Developer</h4>
+                </div>
             </div>
-            <div class = "dev-box">
-                <img src = "img_srcs/lmbp.jpg" alt = "dev pic" class = "dev-photo">
-                <h2>LARA MAXINE PALMA</h2>
-                <h4>UI/UX Designer</h4>
-            </div>
-            <div class = "dev-box">
-                <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
-                <h2>MARCO GABRIEL ASIA</h2>
-                <h4>Web Developer</h4>
-            </div>
-            <div class = "dev-box">
-                <img src = "img_srcs/default-img.jpg" alt = "dev pic" class = "dev-photo">
-                <h2>LANCH CABUANG</h2>
-                <h4>Mobile App Developer</h4>
-            </div>
-            <br><br><br>
         </div>
-        <hr>
     </section>
 </body>
 <footer>

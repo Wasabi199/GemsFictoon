@@ -109,16 +109,17 @@
         }
         .info{
             background-color: black;
-            color: white;
             font-family: Verdana;
             font-size: 16px;
             border: 2px solid blue;
             text-align: center;
             padding: 2px;
             text-decoration: none;
-            display: inline-block;
             border-radius: 20px;
             padding: 10px;          
+        }
+        .more-info-link:hover{
+            color: darkblue;
         }
         .info:hover{
             background-color: white;
@@ -185,15 +186,15 @@
                 <p>
                     Hello, I am GEM! I am a visionary character who owns a library of digital books. 
                     In here, books are not just mere manuscripts; they are treasured gems, each 
-                    holding a unique brilliance waiting to be discovered. I am not just a curator but 
-                    a guide, connecting readers and authors with written gems that will leave an indelible 
+                    holding a unique brilliance waiting to be discovered. I am a curator, connecting 
+                    readers and authors with written gems that will leave an indelible 
                     mark on their hearts and minds.
                 </p>
                 <p>
                     My library is also your library! A community where ideas flourish, creativity thrives, 
                     and the magic of storytelling continues to captivate hearts.
                 </p>
-                <button type = "button" class = "info"><a href = "{{ route('about.about') }}">More info<a></button>
+                <button type = "button" class = "info"><a href = "{{ route('about.about') }}" class = "more-info-link">More info<a></button>
             </div>
         </div>
     </section>

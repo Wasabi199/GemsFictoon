@@ -20,6 +20,7 @@
             margin: auto;
             padding: 0;
             display: flex;
+            padding-bottom: 20%;
         }
         .navigation-area{
             height: 100px;
@@ -158,16 +159,17 @@
             margin: 5px;
             padding: 5px;
             width: 90vw;
-            min-height: 32vh;
+            height: 36vh;
             border-radius: 20px;
             border: 3px solid black;
             text-align: center;
             margin-left: auto;
             margin-right: auto;
+            display: flex;
         }
         button.genre-container{
             float: left;
-            height: 30vh;
+            height: 34vh;
             width: 20%;
             border: 3px solid black;
             border-radius: 20px;
@@ -176,6 +178,7 @@
             text-align: left;
             font-family: Verdana;
             font-size: 18px;
+            flex: 1;
         }
         footer {
             background-color: black;
