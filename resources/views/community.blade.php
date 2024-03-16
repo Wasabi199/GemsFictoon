@@ -16,10 +16,11 @@
         }
         .page{
             width: 100%;
-            height: 100vh;
+            height: 80vh;
             margin: auto;
             padding: 0;
             display: flex;
+            
         }
         .navigation-area{
             height: 100px;
@@ -59,7 +60,7 @@
         h4{
             color: white;
             font-family: Verdana;
-            text-align: left;
+            margin-top: 10%;
             font-size: 18px;
         }
         h3.footer-title{
@@ -72,12 +73,13 @@
             text-align: center;
         }
         /*Listing*/
-        ul.page-list{
+        ul.nav-page-list.page-list{
             list-style-type: none;
             margin-top: 2%;
             margin-bottom: 2%;
             overflow: hidden;
-            padding-left: 42%;
+            float: right;
+            margin-right: 10px;
         }
         li.page-list-item{
             float: left;
@@ -110,47 +112,7 @@
         .container {
             width: 100%;
             margin: auto;
-            min-height: 100vh;
-        }
-        .desc-box{
-            background-image: linear-gradient(darkblue, blue);
-            padding: 26px;
-            max-width: 50vw;
-            min-height: 20vh;
-            margin-left: 50px;
-            margin-top: 10%;
-            border-radius: 20px;
-            border: 3px solid black;
-            justify-content: center;
-            text-align: justify;
-        }
-        .gem-photo{
-            background-color: black;
-            margin: 10px;
-            margin-right: 30px;
-            border-radius: 20px;
-            border: 3px solid black;
-            width: 100px;
-            height: 100px;
-            float: left;
-        }
-        .info{
-            background-color: black;
-            color: white;
-            font-family: Verdana;
-            font-size: 16px;
-            border: 2px solid blue;
-            text-align: center;
-            padding: 2px;
-            text-decoration: none;
-            display: inline-block;
-            border-radius: 20px;
-            padding: 10px;          
-        }
-        .info:hover{
-            background-color: white;
-            color: darkblue;
-            cursor: pointer;
+            min-height: 80vh;
         }
         
         li.fake-button:hover, li.fake-button2:hover{
@@ -168,6 +130,7 @@
             color: white;
             font-family: Verdana;
         }
+        
         /*footer*/
         footer {
             background-color: black;
@@ -181,11 +144,9 @@
             margin-top: 10%;
             min-height: 80vh;
             width: 100%;
-            float: center;
-            align-content: center;
         }
 
-        .join-button{
+        .join-button, .close-button {
             background-color: black;
             color: white;
             font-family: Verdana;
@@ -193,25 +154,52 @@
             font-weight: bold;
             border: 2px solid blue;
             text-align: center;
-            padding: 2px;
-            text-decoration: none;
             border-radius: 20px;
+            padding: 10px; 
+            cursor: pointer;
+        }
+        /* .close-button{
+
+        } */
+        .join-button:hover{
+            background-color: white;
+            color: darkblue;
+            cursor: pointer;
+        }
+        
+        .close-button:hover {
+            background-color: white;
+            color: darkblue;
+            cursor: pointer;
             padding: 10px; 
             width: 10vw;
             cursor: pointer;
         }
-        .close-button {
+        ul.form-buttons{
+            padding: 0;
+        }
+        li.fake-button{
             background-color: black;
             color: white;
             font-family: Verdana;
+            width: 14vw;
+            font-size: 14px;
+            font-weight: bold;
             font-size: 14px;
             font-weight: bold;
             border: 2px solid blue;
             text-align: center;
-            padding: 2px;
             text-decoration: none;
             border-radius: 20px;
             padding: 10px; 
+            margin: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        li.fake-button:hover{
+            background-color: white;
+            color: darkblue;
             cursor: pointer;
         }
         .fake-button{
@@ -275,6 +263,10 @@
             margin-left: auto;
             margin-right: auto;
             box-shadow: 2px 2px 2px 0 black;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0;
         }
         .form-question{
             text-align: justify;
@@ -289,9 +281,17 @@
             padding: 20px;
             border: 2px solid black;
             border-radius: 20px;
-            background-color: gray;
+            background-color: skyblue;
             color: black;
-            margin: 20px; 
+            width: 30vw;
+            min-height: 20vh;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 2px 2px 2px 2px black;
+        }
+        .form-question{
+            text-align: center;
+            font-size: 18px;
         }
         
     </style>
@@ -301,7 +301,7 @@
         <div class = "navigation-area">
             <div class = "navigation-bar">
                 <h1><a href = "{{ route('welcome.welcome') }}" class = "web-name">GEM'S FICTOON</a></h1>
-                <ul class = "page-list">
+                <ul class = "nav-page-list">
                     <li class = "page-list-item"><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
                     <li class = "page-list-item"><a href = "{{ route('community.community') }}" class = "active">COMMUNITY</a></li>
                     <li class = "page-list-item"><a href = "{{ route('library.library') }}">LIBRARY</a></li>
@@ -322,7 +322,8 @@
             </div>
         </div>
         <div class = "group-sec">
-            <h4 class = "default-text"><font color = "black"><center>You currently have no existing group. Do you wish to join on one?</center></font></h4>
+            <!--default display text-->
+            <h4><font color = "black"><center>You currently have no existing group. Do you wish to join on one?</center></font></h4>
             <center><button type = "button" class = "join-button" onClick = "joiningForm()">JOIN GROUP</button></center>
             <div class = "form-popup" id = "formPopup">
                 <form action = "/community.blade.php" class = "joiningForm">
@@ -330,7 +331,7 @@
                     <ul class = "form-buttons">
                         <li class = "fake-button"><a href = "{{ route('publicgroups') }}" class = "fake-button-label">SEE PUBLIC GROUPS</a></li>
                         <li class = "fake-button"><a href = "{{ route('privategroups') }}" class = "fake-button-label">SEE PRIVATE GROUPS</a></li>
-                        <li class = "fake-button2"><a onClick = "closeDetails()" class = "fake-button-label">CLOSE</a></li>
+                        <li class = "fake-button"><a onClick = "closeDetails()" class = "fake-button-label">CLOSE</a></li>
                     </ul>
                 </form>
             </div>
@@ -355,3 +356,85 @@
 </footer>
 </html>
 
+
+<!-- 
+
+<div class = "public-group-sec">
+            <h3>PUBLIC GROUPS</h3>
+            <table class = "public-groups">
+
+                <tr class = "created-group">
+                    <td class = "group-info">
+                        <h4>GROUP NAME</h4> 
+                        <p>group name description/introduction</p>
+                        <button type = "button" class = "view-details" onClick = "viewDetails()">View Details</button>
+
+                        <div class = "details-popup" id = "detailForm">
+                            <form action = "/community.blade.php" class = "view-details-container">
+                                <button type = "submit" class = "join-button">Join Group</button>
+                                <button type = "button" class = "close-button" onClick = "closeDetails()">Close</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        <div class = "group-sec">
+            <h4 class = "default-text"><font color = "black"><center>You currently have no existing group. Do you wish to join on one?</center></font></h4>
+            <center><button type = "button" class = "join-button" onClick = "joiningForm()">JOIN GROUP</button></center>
+            <div class = "form-popup" id = "formPopup">
+                <form action = "/community.blade.php" class = "joiningForm">
+                    <p class = "form-question"><font color = "black">What type of group do you wish to join?</font></p>
+                    <ul class = "form-buttons">
+                        <li class = "fake-button"><a href = "{{ route('publicgroups') }}" class = "fake-button-label">SEE PUBLIC GROUPS</a></li>
+                        <li class = "fake-button"><a href = "{{ route('privategroups') }}" class = "fake-button-label">SEE PRIVATE GROUPS</a></li>
+                        <li class = "fake-button2"><a onClick = "closeDetails()" class = "fake-button-label">CLOSE</a></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+
+        <div class = "public-group-sec">
+            <h3>PRIVATE GROUPS</h3>
+            <!--For each, getting created group from users-->
+            <table class = "public-groups">
+                <!--iterate table row-->
+                <tr class = "created-group">
+                    <td class = "group-info">
+                        <h4>GROUP NAME</h4> <!-- get data from user(group creator)-->
+                        <p>group name description/introduction</p>
+                        <button type = "button" class = "view-details" onClick = "viewPrivDetails()">View Details</button>
+
+                        <div class = "details-popup" id = "detailPrivForm">
+                            <form action = "/community.blade.php" class = "view-details-container">
+                            <h4><font color = "black">GROUP NAME</font></h4>
+                                <p><font color = "black">group name description/introduction</font></p>
+                                <button type = "submit" class = "join-button">Request to Join</button>
+                                <button type = "button" class = "close-button" onClick = "closePrivDetails()">Close</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+<script>
+    function viewDetails() {
+    document.getElementById("detailForm").style.display = "block";
+    }
+    function viewPrivDetails() {
+    document.getElementById("detailPrivForm").style.display = "block";
+    }
+
+    function closeDetails() {
+        document.getElementById("detailForm").style.display = "none";
+    }
+    function closePrivDetails() {
+        document.getElementById("detailPrivForm").style.display = "none";
+    }
+</script>
+</body>
+<footer>
+        <h3 class = "footer-title"> GEM'S FICTOON </h3>
+        <p class = "footer-text">All rights reserved.</p>
+</footer>
+</html>

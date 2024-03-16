@@ -83,6 +83,26 @@ Route::get('/community', function () {
     return view('community');
 })->name('community.community');
 
+Route::get('/editbook', function () {
+    return view('editbook');
+})->name('editbook');
+
+Route::get('/bookpreview', function () {
+    return view('bookpreview');
+})->name('bookpreview');
+
+Route::get('/publicgroups', function () {
+    return view('publicgroups');
+})->name('publicgroups');
+
+Route::get('/privategroups', function () {
+    return view('privategroups');
+})->name('privategroups');
+
+Route::get('/community', function () {
+    return view('community');
+})->name('community.community');
+
 Route::get('/privategroups', function () {
     return view('privategroups');
 })->name('privategroups');

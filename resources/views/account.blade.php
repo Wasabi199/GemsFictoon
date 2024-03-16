@@ -204,6 +204,15 @@
             background-color: gray;
             border-radius: 20px;
             height: 20vh;
+            width: 50%;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+        button {
+            background: none;
+            border: none;
+            font-size: 16px;
         }
         footer {
             background-color: black;
@@ -217,6 +226,7 @@
             text-align: center;
             padding: 5px;
         }
+        
     </style>
 </head>
 <body>

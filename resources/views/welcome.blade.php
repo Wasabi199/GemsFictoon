@@ -45,14 +45,15 @@
             display: block;
             margin-left: 25px;
         }
-        ul{
+        ul.nav-page-list{
             list-style-type: none;
             margin-top: 2%;
             margin-bottom: 2%;
             overflow: hidden;
-            padding-left: 42%;
+            float: right;
+            margin-right: 10px;
         }
-        li{
+        li.page-list-item{
             float: left;
             color: white;
             padding-right: 10px;
@@ -159,13 +160,13 @@
         <div class = "navigation-area">
             <div class = "navigation-bar">
                 <h1><a href = "welcome.welcome" class = "web-name">GEM'S FICTOON</a></h1>
-                <ul>
-                    <li><a href = "{{ route('welcome.welcome') }}" class = "active">HOME</a></li>
-                    <li><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
-                    <li><a href = "{{ route('library.library') }}">LIBRARY</a></li>
-                    <li><a href = "{{ route('about.about') }}" >ABOUT</a></li>
-                    <li><a href = "{{ route('account.account') }}" >ACCOUNT</a></li>
-                    <li>
+                <ul class = "nav-page-list">
+                    <li class = "page-list-item"><a href = "{{ route('welcome.welcome') }}" class = "active">HOME</a></li>
+                    <li class = "page-list-item"><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
+                    <li class = "page-list-item"><a href = "{{ route('library.library') }}">LIBRARY</a></li>
+                    <li class = "page-list-item"><a href = "{{ route('about.about') }}" >ABOUT</a></li>
+                    <li class = "page-list-item"><a href = "{{ route('account.account') }}" >ACCOUNT</a></li>
+                    <li class = "page-list-item">
                         <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
