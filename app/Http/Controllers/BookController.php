@@ -41,7 +41,7 @@ class BookController extends Controller
             ]);
         });
 
-        return Redirect::route('welcome.welcome')->with('message', 'Book Created Successfully');
+        return Redirect::route('account.account')->with('message', 'Book Created Successfully');
     }
 
 
