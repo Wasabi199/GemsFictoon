@@ -48,9 +48,9 @@
             font-family: Verdana;
             font-weight: bolder;
             float: left;
-            display: block;
             margin-left: 25px;
         }
+        
         ul{
             list-style-type: none;
             margin-top: 2%;

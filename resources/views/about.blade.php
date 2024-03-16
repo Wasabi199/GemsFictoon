@@ -39,7 +39,7 @@
             background-color: black;
             border-radius: 20px;
         }
-        h1{
+        h1 {
             font-size: 30px;
             color: white;
             font-family: Verdana;
@@ -48,6 +48,7 @@
             display: block;
             margin-left: 25px;
         }
+        
         ul{
             list-style-type: none;
             margin-top: 2%;
