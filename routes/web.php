@@ -45,6 +45,7 @@ Route::prefix('reader')->middleware(['auth'])->group(function () {
     // Books
     Route::get('book-create', [BookController::class, 'createBook'])->name('book.create');
     Route::post('book-submit', [BookController::class, 'submit'])->name('book.create.submit');
+    Route::delete('book-delete',[BookController::class,'deleteBook'])->name('book.delete');
 
 
     Route::get('book-profile/{id}', [BookController::class, 'bookProfile'])->name('book.profile');

@@ -286,8 +286,15 @@
                                         <div class="text-white ">{{$book->summary}}</div>
                                     </div>
                                 </td>
-                                <td>
+                                <td class="space-y-6">
                                     <a class="px-4 py-2 text-gray-100 rounded-md cursor-pointer bg-slate-900" href="{{route('book.profile',$book->id)}}">View</a>
+                         
+                                    <form method="POST" action="{{route('book.delete')}}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="number" hidden name="id" value="{{$book->id}}">
+                                        <input class="px-4 py-2 text-red-500 bg-slate-900 rounded-md" type="submit" value="Delete">
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

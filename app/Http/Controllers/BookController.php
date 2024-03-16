@@ -53,6 +53,12 @@ class BookController extends Controller
         ]);
     }
 
+    public function deleteBook(Request $request){
+        $book = Book::findOrFail($request->id);
+        $book->delete();
+        return Redirect::route('account.account')->with('message', 'Book Deleted Successfully');
+    }
+
     public function createChapter($id) {
         $book = Book::findOrFail($id);
 
@@ -72,7 +78,7 @@ class BookController extends Controller
             ]);
         });
 
-        return Redirect::route('welcome.welcome')->with('message', 'Book Created Successfully');
+        return Redirect::route('account.account')->with('message', 'Book Created Successfully');
 
     }
 
@@ -87,7 +93,7 @@ class BookController extends Controller
     public function deleteChapter(Request $request){
         $chapter = BookChapter::findOrFail($request->id);
         $chapter->delete();
-        return Redirect::route('welcome.welcome')->with('message', 'Book Deleted Successfully');
+        return Redirect::route('account.account')->with('message', 'Book Deleted Successfully');
     }
 
     public function updateChapter($id){
@@ -108,7 +114,7 @@ class BookController extends Controller
             'content'=>$validated_data['body']
         ]);
 
-        return Redirect::route('welcome.welcome')->with('message', 'Book Updated Successfully');
+        return Redirect::route('book.profile',$chapter->book_id)->with('message', 'Book Updated Successfully');
 
     }
 

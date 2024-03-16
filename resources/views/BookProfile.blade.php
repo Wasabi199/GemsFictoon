@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="w-full p-10 border-b border-gray-500">
+    <div class="w-full flex justify-between p-10 border-b border-gray-500">
         <div class="flex items-center py-2 my-auto text-3xl font-bold text-center text-gray-200">
             <span>Book</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -7,6 +7,11 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
             </svg>
             <span> {{ $book->title }}</span>
+        </div>
+        <div class="bg-red-500 flex items-center text-white py-2 px-4 rounded-md cursor-pointer">
+            <a href="{{route('account.account')}}">
+                Back
+            </a>
         </div>
     </div>
     <div class="p-5">

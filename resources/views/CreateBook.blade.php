@@ -1,8 +1,13 @@
 <x-app-layout>
 
-    <div class="w-full p-10 border-b border-gray-500">
+    <div class="w-full flex justify-between p-10 border-b border-gray-500">
         <div class="text-3xl font-bold text-gray-200">
           Book Create
+        </div>
+        <div class="bg-red-500 text-white py-2 px-4 rounded-md cursor-pointer">
+            <a href="{{route('account.account')}}">
+                Back
+            </a>
         </div>
     </div>
     <div class="p-5">
