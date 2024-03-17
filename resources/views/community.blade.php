@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="img_srcs/gem.png" type="image/x-icon">
     <title>Gem's Fictoon</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     <style>
         body{
             width: 100%;
@@ -322,7 +324,24 @@
             </div>
         </div>
         <div class = "group-sec">
-            <h4 class = "default-text"><font color = "black"><center>You currently have no existing group. Do you wish to join on one?</center></font></h4>
+
+            
+            @if ($groups)              
+                <div class="grid grid-cols-2 gap-4 p-5 grid-cols-row">
+                @foreach ($groups as $group)
+                    <div class="p-5 bg-gray-300 border-2 border-black rounded-md text-start">
+                        <div>{{$group->name}}</div>
+                        <div>{{$group->introduction}}</div>
+                        <div class="flex justify-end">
+                          <a href="{{route('group-profile',$group->id)}}" class="text-black cursor-pointer">View</a>
+                        </div>
+                    </div>
+                @endforeach
+                </div>
+                @else
+                <h4 class = "default-text"><font color = "black"><center>You currently have no existing group. Do you wish to join on one?</center></font></h4>
+                @endif
+            
             <center><button type = "button" class = "join-button" onClick = "joiningForm()">JOIN GROUP</button></center>
             <div class = "form-popup" id = "formPopup">
                 <form action = "/community.blade.php" class = "joiningForm">
@@ -353,5 +372,9 @@
         <h3 class = "footer-title"> GEM'S FICTOON </h3>
         <p class = "footer-text">All rights reserved.</p>
 </footer>
+
+@props([
+    'groups'
+])
 </html>
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Book;
 use App\Models\Category;
@@ -71,7 +72,24 @@ Route::prefix('reader')->middleware(['auth'])->group(function () {
         ]);
     })->name('library.library');;
     
+
+    Route::get('/community',[GroupController::class,'community'])->name('community.community');
+
+    Route::get('/publicgroups',[GroupController::class,'publicGroup'])->name('publicgroups');
+    Route::patch('join-group',[GroupController::class,'joinGroup'])->name('join.group');
+    Route::get('group-profile/{id}',[GroupController::class,'groupProfile'])->name('group-profile');
+    Route::get('create-post/{id}',[GroupController::class,'createPost'])->name('create-post');
+    Route::post('create-post-submit',[GroupController::class,'createPostSubmit'])->name('create-post-submit');
     
+    Route::get('post-profile/{id}',[GroupController::class,'postProfile'])->name('post-profile');
+    Route::patch('like-post',[GroupController::class,'likePost'])->name('like-post');
+
+    Route::post('post-comment',[GroupController::class,'postComment'])->name('post-comment');
+    Route::patch('like-comment',[GroupController::class,'likeComment'])->name('like-comment');
+
+    Route::get('/privategroups', [GroupController::class,'privateGroup'])->name('privategroups');
+    
+
 });
 
 Route::get('/about', function () {
@@ -79,17 +97,9 @@ Route::get('/about', function () {
 })->name('about.about');
 
 
-Route::get('/community', function () {
-    return view('community');
-})->name('community.community');
 
-Route::get('/privategroups', function () {
-    return view('privategroups');
-})->name('privategroups');
 
-Route::get('/publicgroups', function () {
-    return view('publicgroups');
-})->name('publicgroups');
+
 
 Route::get('/editprofile', function () {
     return view('editprofile');

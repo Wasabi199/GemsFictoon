@@ -19,10 +19,15 @@ class GroupFactory extends Factory
      */
     public function definition(): array
     {
+        $type = [
+            GroupType::PUBLIC,
+            GroupType::PRIVATE
+        ];
+
         return [
             'name'=>$this->faker->word(),
-            'type'=>GroupType::PUBLIC,
-            'introduction'=>$this->faker->words(3, true)
+            'type'=>$this->faker->randomElement($type),
+            'introduction'=>$this->faker->words(10, true)
         ];
     }
 }

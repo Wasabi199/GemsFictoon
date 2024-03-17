@@ -59,7 +59,6 @@ class User extends Authenticatable
      */
     public function following():Attribute
     {
-        
         return Attribute::get(fn()=>$this->followingUser()->count());
     }
 
@@ -94,5 +93,10 @@ class User extends Authenticatable
     public function followerUser():BelongsToMany
     {
         return $this->belongsToMany(User::class, 'follower_users','user_id','follower_id');
+    }
+
+    public function userGroup():BelongsToMany
+    {
+        return $this->belongsToMany(Group::class,'user_groups','user_id','group_id');
     }
 }
