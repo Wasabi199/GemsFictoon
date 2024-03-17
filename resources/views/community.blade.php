@@ -155,17 +155,13 @@
             cursor: pointer;
         }
         
-        li.fake-button:hover, li.fake-button2:hover{
+        
+        .fake-button-label:hover{
             background-color: white;
             color: darkblue;
             cursor: pointer;
         }
-
-        a.fake-button-label:hover{
-            background-color: white;
-            color: darkblue;
-            cursor: pointer;
-        }
+ 
         p{
             color: white;
             font-family: Verdana;
@@ -216,7 +212,7 @@
             padding: 10px; 
             cursor: pointer;
         }
-        .fake-button{
+        .fake-button-label{
             background-color: black;
             color: white;
             font-family: Verdana;
@@ -231,23 +227,7 @@
             cursor: pointer;
             display: block;
         }
-        .fake-button2{
-            background-color: black;
-            color: white;
-            font-family: Verdana;
-            font-size: 14px;
-            font-weight: bold;
-            border: 2px solid blue;
-            text-align: center;
-            border-radius: 20px;
-            padding: 10px; 
-            width: 8vw;
-            margin: 20px;
-            cursor: pointer;
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
-        }
+        
         .join-button:hover, .close-button:hover {
             background-color: white;
             color: darkblue;
@@ -263,6 +243,7 @@
         }
         .form-buttons{
             padding: 0;
+            list-style-type: none;
         }
         .joiningForm{
             width: 24vw;

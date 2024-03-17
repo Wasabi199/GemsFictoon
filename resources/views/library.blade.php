@@ -21,7 +21,8 @@
         .page {
             width: 100%;
             height: 100vh;
-            margin: auto;
+            margin-left: auto;
+            margin-right: auto;
             padding: 0;
             display: flex;
             padding-bottom: 20%;
@@ -54,16 +55,14 @@
             display: block;
             margin-left: 25px;
         }
-
-        ul {
+        ul.page-list{
             list-style-type: none;
             margin-top: 2%;
             margin-bottom: 2%;
             overflow: hidden;
             padding-left: 42%;
         }
-
-        li {
+        li.page-list-item{
             float: left;
             color: white;
             padding-right: 10px;
@@ -71,34 +70,29 @@
             justify-content: center;
         }
 
-        a {
+        a{
             text-decoration: none;
             color: white;
             font-family: Verdana;
         }
-
-        li a:hover {
+        li.page-list-item a:hover{
             color: lightblue;
             font-weight: bold;
         }
-
-        li a {
+        li a{    
             padding: 6px;
         }
-
         .web-name:hover {
             color: skyblue;
         }
-
-        .active {
+        .active{
             color: skyblue;
             font-weight: bold;
         }
-
         .container {
             width: 100%;
-            margin: auto;
             min-height: 100vh;
+            align-content: center;
         }
 
         .desc-box {
@@ -188,10 +182,9 @@
             /* min-height: 32vh; */
             border-radius: 20px;
             border: 3px solid black;
-            /* text-align: center; */
+            text-align: left;
             margin-left: auto;
             margin-right: auto;
-            /* display: flex; */
         }
         
         button.genre-container{
@@ -234,13 +227,13 @@
         <div class = "navigation-area">
             <div class = "navigation-bar">
                 <h1><a href = "{{ route('welcome.welcome') }}" class = "web-name">GEM'S FICTOON</a></h1>
-                <ul>
-                    <li><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
-                    <li><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
-                    <li><a href = "{{ route('library.library') }}" class = "active">LIBRARY</a></li>
-                    <li><a href = "{{ route('about.about') }}">ABOUT</a></li>
-                    <li><a href = "{{ route('account.account') }}">ACCOUNT</a></li>
-                    <li>
+                <ul class = "page-list">
+                    <li class = "page-list-item"><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
+                    <li class = "page-list-item"><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
+                    <li class = "page-list-item"><a href = "{{ route('library.library') }}" class = "active">LIBRARY</a></li>
+                    <li class = "page-list-item"><a href = "{{ route('about.about') }}">ABOUT</a></li>
+                    <li class = "page-list-item"><a href = "{{ route('account.account') }}">ACCOUNT</a></li>
+                    <li class = "page-list-item">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
@@ -260,7 +253,7 @@
                 @foreach ($books as $book)
                     <a href="{{ route('book.profile', $book->id) }}">
                         <div class="p-10">
-                            <img class="w-52" src="{{ $book->image }}" />
+                            <img class="w-52" src="{{ URL::to('/') . '/storage/' . $book->image }}" />
                         </div>
                     </a>
                 @endforeach
@@ -274,7 +267,7 @@
                             @foreach ($gen->book as $book)
                                 <a href="{{ route('book.profile', $book->id) }}">
                                     <div>
-                                        <img class="w-52" src="{{ $book->image }}" />
+                                        <img class="w-52" src="{{ URL::to('/') . '/storage/' . $book->image }}" />
                                     </div>
                                 </a>
                             @endforeach
@@ -286,15 +279,6 @@
         </div>
         
     </section>
-    <script>
-        function openRomance() {
-
-        }
-
-        function openAction() {
-
-        }
-    </script>
 </body>
 <footer>
     <h3> GEM'S FICTOON </h3>

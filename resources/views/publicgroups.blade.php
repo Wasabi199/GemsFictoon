@@ -49,7 +49,7 @@
             display: block;
             margin-left: 25px;
         }
-        a{
+        a.back-btn{
             text-decoration: none;
             color: white;
             font-family: Verdana;
@@ -59,8 +59,27 @@
             padding: 10px;
         }
 
-        a:hover {
+        .back-btn:hover {
             color: skyblue;
+        }
+        .create-btn:hover{
+            background-color: white;
+            color: darkblue;
+            cursor: pointer;
+        }
+        .create-btn{
+            background-color: black;
+            color: white;
+            font-family: Verdana;
+            font-size: 14px;
+            font-weight: bold;
+            border: 2px solid blue;
+            text-align: center;
+            padding: 2px;
+            text-decoration: none;
+            border-radius: 20px;
+            padding: 10px; 
+            cursor: pointer;
         }
         .active{
             color: skyblue;
@@ -157,7 +176,7 @@
     <section class = "page">
         <div class = "navigation-area">
             <div class = "navigation-bar">
-                <a href = "{{ route('community.community') }}">BACK</a>
+                <a href = "{{ route('community.community') }}" class = "back-btn">BACK</a>
             </div>
         </div>
         <div class = "container">
@@ -185,7 +204,7 @@
                 <p class = "default-text">no data.</p>
                 @endif
 
-                <button type = "button" class = "join-button">CREATE OWN PUBLIC GROUP</button>
+                <a href = "{{ route ('createpublicgroup') }}" class = "create-btn">CREATE OWN PUBLIC GROUP</a>
             </div>
         </div>
         

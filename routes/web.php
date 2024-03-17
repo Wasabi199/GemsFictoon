@@ -105,6 +105,14 @@ Route::get('/editprofile', function () {
     return view('editprofile');
 })->name('editprofile');
 
+Route::get('/createpublicgroup', function () {
+    return view('createpublicgroup');
+})->name('createpublicgroup');
+
+Route::get('/createprivategroup', function () {
+    return view('createprivategroup');
+})->name('createprivategroup');
+
 Route::get('book-title', function () {
     return view('Bookttitle');
 })->name('book');
