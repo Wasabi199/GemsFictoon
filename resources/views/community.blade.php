@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="img_srcs/gem.png" type="image/x-icon">
     <title>Gem's Fictoon</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
 
     <style>
         body{
@@ -64,6 +64,9 @@
             text-align: left;
             font-size: 18px;
         }
+        .gnm{
+            color: black;
+        }
         h3.footer-title{
             color: white;
             font-family: Verdana;
@@ -111,21 +114,26 @@
         /*main content*/
         .container {
             width: 100%;
-            margin: auto;
-            min-height: 100vh;
+            justify-content: center; 
+            align-items: center;
+            display: flex;
+            margin-top: 8%;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .desc-box{
-            background-image: linear-gradient(darkblue, blue);
-            padding: 26px;
-            max-width: 50vw;
-            min-height: 20vh;
-            margin-left: 50px;
-            margin-top: 10%;
+        .group-boxes{
+            background-color: lightgray;
+            margin: 15px;
+            padding: 15px;
+            width: 30vw;
+            height: 18vh;
             border-radius: 20px;
             border: 3px solid black;
-            justify-content: center;
-            text-align: justify;
+            display: block;
+            vertical-align: top;
+            
         }
+        
         .gem-photo{
             background-color: black;
             margin: 10px;
@@ -136,18 +144,23 @@
             height: 100px;
             float: left;
         }
+        .btn-container{
+            width: 100%;
+        }
         .info{
             background-color: black;
             color: white;
             font-family: Verdana;
-            font-size: 16px;
+            font-size: 14px;
+            font-weight: bold;
             border: 2px solid blue;
             text-align: center;
-            padding: 2px;
-            text-decoration: none;
-            display: inline-block;
             border-radius: 20px;
-            padding: 10px;          
+            padding: 10px; 
+            cursor: pointer;
+            display: flex;
+            float: right;
+            margin-top: 20px;
         }
         .info:hover{
             background-color: white;
@@ -176,11 +189,15 @@
             width: 100%;
         }
         .group-sec{
-            margin-top: 10%;
-            min-height: 80vh;
             width: 100%;
-            float: center;
-            align-content: center;
+            min-height: 60vh;
+            margin: 20px;
+            top: 10%;
+            justify-content: center; 
+            display: block;
+            margin-top: 8%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .join-button{
@@ -191,12 +208,13 @@
             font-weight: bold;
             border: 2px solid blue;
             text-align: center;
-            padding: 2px;
             text-decoration: none;
             border-radius: 20px;
             padding: 10px; 
             width: 10vw;
             cursor: pointer;
+            
+            
         }
         .close-button {
             background-color: black;
@@ -227,8 +245,25 @@
             cursor: pointer;
             display: block;
         }
+        .fake-button-label2{
+            background-color: black;
+            color: white;
+            font-family: Verdana;
+            font-size: 14px;
+            font-weight: bold;
+            border: 2px solid blue;
+            text-align: center;
+            border-radius: 20px;
+            padding: 10px; 
+            width: 10vw;
+            margin: 20px;
+            cursor: pointer;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
         
-        .join-button:hover, .close-button:hover {
+        .join-button:hover, .close-button:hover, .fake-button-label2:hover {
             background-color: white;
             color: darkblue;
             cursor: pointer;
@@ -239,7 +274,7 @@
             width: 100%;
             margin-left: auto;
             margin-right: auto;
-            margin-top: -10%;
+            margin-top: -20%;
         }
         .form-buttons{
             padding: 0;
@@ -308,29 +343,29 @@
 
             
             @if ($groups)              
-                <div class="grid grid-cols-2 gap-4 p-5 grid-cols-row">
+                <div class="container">
                 @foreach ($groups as $group)
-                    <div class="p-5 bg-gray-300 border-2 border-black rounded-md text-start">
-                        <div>{{$group->name}}</div>
-                        <div>{{$group->introduction}}</div>
-                        <div class="flex justify-end">
-                          <a href="{{route('group-profile',$group->id)}}" class="text-black cursor-pointer">View</a>
-                        </div>
+                    <div class="group-boxes">
+                        <h4 class = "gnm">{{$group->name}}</h4>
+                        <p class = "gnm">{{$group->introduction}}</h4>  
+
+                          <a href="{{route('group-profile',$group->id)}}" class="info">View</a>
+                        <br>
                     </div>
                 @endforeach
                 </div>
                 @else
                 <h4 class = "default-text"><font color = "black"><center>You currently have no existing group. Do you wish to join on one?</center></font></h4>
                 @endif
-            
-            <center><button type = "button" class = "join-button" onClick = "joiningForm()">JOIN GROUP</button></center>
+            <br><br>
+            <center><button type = "button" class = "join-button" onClick = "joiningForm()">JOIN A GROUP</button></center>
             <div class = "form-popup" id = "formPopup">
                 <form action = "/community.blade.php" class = "joiningForm">
                     <p class = "form-question"><font color = "black">What type of group do you wish to join?</font></p>
                     <ul class = "form-buttons">
                         <li class = "fake-button"><a href = "{{ route('publicgroups') }}" class = "fake-button-label">SEE PUBLIC GROUPS</a></li>
                         <li class = "fake-button"><a href = "{{ route('privategroups') }}" class = "fake-button-label">SEE PRIVATE GROUPS</a></li>
-                        <li class = "fake-button2"><a onClick = "closeDetails()" class = "fake-button-label">CLOSE</a></li>
+                        <li class = "fake-button2"><a onClick = "closeDetails()" class = "fake-button-label2">CLOSE</a></li>
                     </ul>
                 </form>
             </div>

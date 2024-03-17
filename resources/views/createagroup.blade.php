@@ -21,7 +21,6 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            padding-bottom: 10%;
         }
         .navigation-area{
             height: 100px;
@@ -109,7 +108,7 @@
         }
         .desc-box{
             background-color: white;
-            padding: 26px;
+            padding: 20px;
             max-width: 40vw;
             min-height: 20vh;
             margin-left: auto;
@@ -159,24 +158,6 @@
             color: darkblue;
             cursor: pointer;
         }
-        .generate-btn{
-            background-color: black;
-            color: white;
-            font-family: Verdana;
-            font-size: 14px;
-            border: 2px solid blue;
-            text-align: center;
-            padding: 6px;
-            margin: 5px;
-            text-decoration: none;
-            border-radius: 20px;;
-            display: inline;
-        }
-        .generate-btn:hover{
-            background-color: white;
-            color: darkblue;
-            cursor: pointer;
-        }
         .profile-section-name {
             color: black;
             font-family: Verdana;
@@ -191,15 +172,6 @@
             font-family: Verdana;
             font-size: 18px;
             font-weight: bold;
-        }
-        .display-text{
-            margin: 5px;
-            width: 30%;
-            display: inline;
-            height: 30px;
-            border: 1px solid black;
-            border-radius: 10px;
-            font-size: 18px;
         }
         .type-text{
             margin: 5px;
@@ -217,30 +189,24 @@
             width: 100%;
             display: block;
             margin-left: auto;
-            margin-right: auto;
-            height: 80px;
+            margin-right: auto; 
+            height: 90px;
             border: 1px solid black;
             border-radius: 10px;
             font-size: 18px;
             resize: none;
+            margin-bottom: 20px;
         }
-        .type-longtext2{
+        .select-type {
             margin: 5px;
             width: 100%;
             display: block;
             margin-left: auto;
             margin-right: auto;
-            height: 160px;
+            height: 30px;
             border: 1px solid black;
             border-radius: 10px;
             font-size: 18px;
-            resize: none;
-        }
-        .center-this{
-            justify-content: center;
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
         }
         
         footer {
@@ -262,34 +228,31 @@
     <section class = "page">
         <div class = "navigation-area">
             <div class = "navigation-bar">
-                <a href = "{{ route('privategroups') }}">BACK</a>
+                <a href = "{{ route('publicgroups') }}">BACK</a>
             </div>
         </div>
         <div class = "container-wrapper">
             <div class = "container">
+                
                 <div class = "desc-box">
-                    <!-- <button type = "button" class = "info">Change Photo</button> -->
+                    <h4>CREATE A GROUP</h4>
+                    <hr><br>
                     <div class = "editable-sec">
                         <label for = "group-name">GROUP NAME</label>
                         <br>
                         <input type = "text" class = "type-text" name = "groupname" id = "groupname">
-                        <label for = "group-topic">MAIN TOPIC</label>
+
+                        <label for = "group-type">GROUP TYPE</label>
                         <br>
-                        <input type = "text" class = "type-text" name = "grouptopic" id = "grouptopic">
+                        <select name = "Group Type" id = "group-type" class = "select-type">
+                            <option selected = "select">Select a group type...</option>
+                            <option value = "public">Public</option>
+                            <option value = "private">Private</option>
+                        </select>
+
                         <label for = "group-intro">GROUP INTRODUCTION</label>
                         <br>
-                        <span><font color = "gray" size = "3px"> *this will be displayed publicly below the group name.</font></span>
-                        <textarea class = "type-longtext" name = "groupintro" id = "groupintro"></textarea>
-                        <label for = "group-desc">GROUP DESCRIPTION</label>
-                        <br>
-                        <textarea class = "type-longtext2" name = "groupdesc" id = "groupdesc"></textarea>
-                        <br>
-                        <center><label for = "group-code">GROUP CODE</label></center>
-                        <div class = "center-this">
-                            <input type = "text" class = "display-text" readonly = "readonly"/>
-                            <button type = "button" class = "generate-btn">GENERATE CODE</button>
-                        </div>
-                        <br>
+                        <textarea type = "text" class = "type-longtext" name = "groupintro" id = "groupintro"></textarea>
                         <button type = "button" class = "create-btn">CREATE</button>
                     </div>
                 </div>

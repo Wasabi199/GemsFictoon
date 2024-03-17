@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="img_srcs/gem.png" type="image/x-icon">
     <title>Gem's Fictoon</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
 
     <style>
         body{
@@ -18,10 +18,12 @@
         }
         .page{
             width: 100%;
-            height: 100vh;
-            margin: auto;
+            min-height: 100vh;
+            margin-left: auto;
+            margin-right: auto;
             padding: 0;
             display: flex;
+            padding-bottom: 10%;
             flex-direction: column;
         }
         .navigation-area{
@@ -33,7 +35,6 @@
         }
         .navigation-bar{
             position: fixed;
-            top: 2;
             margin: auto;
             width: 100%;
             background-color: black;
@@ -80,6 +81,8 @@
             border-radius: 20px;
             padding: 10px; 
             cursor: pointer;
+            width: 10vw;
+            align-self: center;
         }
         .active{
             color: skyblue;
@@ -112,6 +115,17 @@
             font-family: Verdana;
 
         }
+        .group-name{
+            text-align: left;
+            margin: 0px;
+            margin-top: 10px;
+        }
+        .group-intro{
+            color: black;
+            text-align: left;
+            padding: 10px;
+            margin: 0;
+        }
         .default-text{
             margin-top: 10vh;
             float: center;
@@ -127,11 +141,18 @@
             border-radius: 20px;
             padding: 10px; 
             cursor: pointer;
+            display: flex;
+            margin-left: auto;
+            margin-right: 5px;
         }
         .join-button:hover, .close-button:hover {
             background-color: white;
             color: darkblue;
             cursor: pointer;
+        }
+        .join-btn-form{
+            width: 100%;
+            
         }
         .container {
             width: 100%;
@@ -148,13 +169,25 @@
             background-image: linear-gradient(darkblue, blue);
             margin: 5px;
             padding: 5px;
-            width: 90vw;
+            width: 80vw;
             min-height: 32vh;
             border-radius: 20px;
             border: 3px solid black;
-            text-align: center;
             margin-left: auto;
             margin-right: auto;
+            
+        }
+        .group-boxes{
+            background-color: lightgray;
+            margin: 15px;
+            padding: 15px;
+            width: 30vw;
+            height: 18vh;
+            border-radius: 20px;
+            border: 3px solid black;
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 69px;
         }
         
         footer {
@@ -182,21 +215,20 @@
         <div class = "container">
             <h4>PUBLIC GROUPS</h4>
             <div class = " story-container">
-                <!-- existing public groups-->
                 @if ($groups)              
-                <div class="grid grid-cols-2 gap-4 p-5 grid-cols-row">
+                <div class="group-container">
                 @foreach ($groups as $group)
-                    <div class="p-5 bg-gray-300 border-2 border-black rounded-md text-start">
-                        <div>{{$group->name}}</div>
-                        <div>{{$group->introduction}}</div>
-                        <div>
-                            <form method="POST" class="flex justify-end" action="{{route('join.group')}}">
+                    <div class="group-boxes">
+                        <h4 class = "group-name">{{$group->name}} </h4>
+                        <p class = "group-intro">{{$group->introduction}}</h4>
+                        
+                            <form method="POST" class = "join-btn-form" action="{{route('join.group')}}">
                                 @csrf
                                 @method('PATCH')
                                 <input type="number" hidden name="id" value="{{$group->id}}">
-                                <input class="px-4 py-2 text-black border border-black rounded-md cursor-pointer" type="submit" value="Join">
+                                <input class="join-button" type="submit" value="Join">
                             </form>
-                        </div>
+                        
                     </div>
                 @endforeach
                 </div>
@@ -204,16 +236,18 @@
                 <p class = "default-text">no data.</p>
                 @endif
 
-                <a href = "{{ route ('createpublicgroup') }}" class = "create-btn">CREATE OWN PUBLIC GROUP</a>
+                
             </div>
+            
         </div>
+        <a href = "{{ route ('createagroup') }}" class = "create-btn">CREATE A GROUP</a>
         
     </section>
 </body>
-<footer>
+<!-- <footer>
         <h3> GEM'S FICTOON </h3>
         <p class = "footer-text">All rights reserved.</p>
-</footer>
+</footer> -->
 @props([
     'groups'
 ])

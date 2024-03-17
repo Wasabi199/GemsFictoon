@@ -108,7 +108,7 @@
             height: 180px;
             display: block;
         }
-        .info{
+        .more-info-link{
             background-color: black;
             font-family: Verdana;
             font-size: 16px;
@@ -117,12 +117,9 @@
             padding: 2px;
             text-decoration: none;
             border-radius: 20px;
-            padding: 10px;          
+            padding: 10px;       
         }
         .more-info-link:hover{
-            color: darkblue;
-        }
-        .info:hover{
             background-color: white;
             color: darkblue;
             cursor: pointer;
@@ -195,7 +192,8 @@
                     My library is also your library! A community where ideas flourish, creativity thrives, 
                     and the magic of storytelling continues to captivate hearts.
                 </p>
-                <button type = "button" class = "info"><a href = "{{ route('about.about') }}" class = "more-info-link">More info<a></button>
+                <br>
+                <a href = "{{ route('about.about') }}" class = "more-info-link">More info<a>
             </div>
         </div>
     </section>
