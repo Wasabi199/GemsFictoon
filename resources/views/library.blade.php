@@ -25,6 +25,7 @@
             padding: 0;
             display: flex;
             padding-bottom: 20%;
+            flex-direction: column;
         }
 
         .navigation-area {
@@ -192,8 +193,10 @@
             margin-right: auto;
             /* display: flex; */
         }
-
-        button.genre-container {
+        
+        button.genre-container{
+            display: flex;
+            flex: 1;
             float: left;
             height: 34vh;
             width: 20%;
@@ -206,7 +209,9 @@
             font-size: 18px;
             flex: 1;
         }
-
+        .genre-container:hover{
+            cursor: pointer;
+        }
         footer {
             background-color: black;
             color: #fff;
@@ -214,6 +219,7 @@
             position: fixed;
             bottom: 0;
             width: 100%;
+            margin-top: auto;
         }
 
         .footer-text {
@@ -278,6 +284,7 @@
             </div>
         </div>
         </div>
+        
     </section>
     <script>
         function openRomance() {

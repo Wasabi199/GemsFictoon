@@ -48,9 +48,9 @@
             font-family: Verdana;
             font-weight: bolder;
             float: left;
-            display: block;
             margin-left: 25px;
         }
+        
         ul{
             list-style-type: none;
             margin-top: 2%;
@@ -204,6 +204,15 @@
             background-color: gray;
             border-radius: 20px;
             height: 20vh;
+            width: 50%;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+        button {
+            background: none;
+            border: none;
+            font-size: 16px;
         }
         footer {
             background-color: black;
@@ -217,6 +226,7 @@
             text-align: center;
             padding: 5px;
         }
+        
     </style>
 </head>
 <body>
@@ -275,7 +285,7 @@
                     <div class="flex justify-between">
                         <h2 class="font-bold">SHELF</h2>
                         <a href="{{route('book.create')}}" class="px-4 py-2 text-gray-100 rounded-md cursor-pointer bg-slate-900">Create A Book</a>
-                    </div>
+                    </div> 
                     <table class ="shelf">
                         @foreach ($books as $book)
                         <tr class="cursor-pointer">
