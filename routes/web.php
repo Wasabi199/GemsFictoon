@@ -80,6 +80,8 @@ Route::prefix('reader')->middleware(['auth'])->group(function () {
     Route::patch('join-group',[GroupController::class,'joinGroup'])->name('join.group');
     Route::get('group-profile/{id}',[GroupController::class,'groupProfile'])->name('group-profile');
     Route::get('create-post/{id}',[GroupController::class,'createPost'])->name('create-post');
+    Route::delete('delete-post',[GroupController::class,'deletePost'])->name('delete-post');
+    
     Route::post('create-post-submit',[GroupController::class,'createPostSubmit'])->name('create-post-submit');
     
     Route::get('post-profile/{id}',[GroupController::class,'postProfile'])->name('post-profile');

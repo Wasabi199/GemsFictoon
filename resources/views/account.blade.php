@@ -427,12 +427,15 @@
                                 <td class = "book-buttons">
                                     <a class="view-btn" href="{{route('book.profile',$book->id)}}">View</a>
                                     
+                                    @if (Auth::user()->id == $book->user_id)   
                                     <form method="POST" action="{{route('book.delete')}}">
                                         @csrf
                                         @method('DELETE')
                                         <input type = "number" hidden name="id" value="{{$book->id}}">
                                         <input class = "delete-btn" type="submit" value="Delete">
-                                    </form></td>
+                                    </form>
+                                    @endif
+                                </td>
                             </tr>
                            
                     </table>

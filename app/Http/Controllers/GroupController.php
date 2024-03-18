@@ -81,7 +81,13 @@ class GroupController extends Controller
         return view('CreatePost', [
             'group' => $group
         ]);
+    }
 
+    public function deletePost(Request $request)
+    {
+        $post = GroupPost::findOrFail($request->id);
+        $post->delete();
+        return Redirect::back()->with('message', 'Book Created Successfully');
 
     }
 
