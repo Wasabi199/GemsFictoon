@@ -4,67 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="img_srcs/gem.png" type="image/x-icon">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="icon" href="/img_srcs/gem.png" type="image/x-icon">
+    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
 
     <title>Gem's Fictoon</title>
 
     <style>
         body{
             width: 100%;
-            height: 100vh;
+            min-height: 150vh;
             margin: auto;
             padding: 0;
             background-color: lightgray;
         }
-        section{
-            min-height: 60vh;
-        }
         .page{
             width: 100%;
-            height: 100vh;
+            min-height: 160vh;
             margin: auto;
             padding: 0;
             display: flex;
         }
-        .navigation-area{
-            height: 100px;
-            width: 100%;
-            padding: 2px;
-            margin: 2px;
-            position: fixed;
-        }
         .navigation-bar{
             position: fixed;
-            top: 2;
-            margin: auto;
+            float: center;
             width: 100%;
-            background-color: black;
-            border-radius: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #060270;
+            border-bottom: 4px solid black;
+            border-top: 4px solid black;
+            box-shadow: 1px 1px 8px black;
         }
-        h1{
+        .nav-left{
+            float: left;
+        }
+        .nav-right{
+            float: right;
+            margin-right: 20px;
+            height: 100%;
+        }
+
+        h1 {
             font-size: 30px;
             color: white;
             font-family: Verdana;
             font-weight: bolder;
             float: left;
+            display: block;
             margin-left: 25px;
         }
-        
-        ul{
+        /*Listing*/
+        ul.nav-page-list{
             list-style-type: none;
-            margin-top: 2%;
-            margin-bottom: 2%;
             overflow: hidden;
-            padding-left: 42%;
+            display: flex;
+            margin-top: 30px;
+            margin-bottom: 2px;
+            width: 40vw;
+            justify-content: space-around;
         }
-        li{
-            float: left;
+        li.page-list-item{
+            display: inline-block;
             color: white;
             padding-right: 10px;
             text-align: center;
             justify-content: center;
         }
+        /*Links*/
         a{
             text-decoration: none;
             color: white;
@@ -72,7 +78,7 @@
         }
         li a:hover{
             color: lightblue;
-            font-weight: bold;
+            font-weight: bold; 
         }
         li a{    
             padding: 6px;
@@ -83,6 +89,7 @@
         .active{
             color: skyblue;
             font-weight: bold;
+            text-shadow: 2px 2px 4px blue;
         }
         .container-wrapper {
             display: flex;
@@ -92,24 +99,29 @@
         }
         .container {
             width: 100%;
-            margin: auto;
-            min-height: 100vh;
-        }
-        .container-2 {
-            width: 100%;
-            margin: auto;
-            min-height: 100vh;
-            margin-top: -20vh;
-            margin-bottom: 10%;
+            display: block;
         }
         .desc-box{
-            background-image: linear-gradient(darkblue, blue);
+            background-image: linear-gradient(darkgray, gray);
             padding: 26px;
-            max-width: 50vw;
+            max-width: 40vw;
             min-height: 20vh;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 10%;
+            margin-top: 10vh;
+            border-radius: 20px;
+            border: 3px solid black;
+            justify-content: center;
+            text-align: justify;
+        }
+        .desc-box2{
+            background-image: linear-gradient(darkgray, gray);
+            padding: 26px;
+            max-width: 60vw;
+            min-height: 20vh;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 6vh;
             border-radius: 20px;
             border: 3px solid black;
             justify-content: center;
@@ -125,67 +137,78 @@
             width: 130px;
             height: 130px;
         }
-        .info{
+        .editprofile-btn{
             background-color: black;
             color: white;
             font-family: Verdana;
             font-size: 16px;
             border: 2px solid blue;
             text-align: center;
+            justify-content: center;
             padding: 10px;
+            width: 10vw;
             text-decoration: none;
             border-radius: 20px;
-            margin-right: auto;
+            display: flex;
             margin-left: auto;
+            margin-right: auto;
         }
-        .info:hover{
+
+        .editprofile-btn:hover{
             background-color: white;
             color: darkblue;
             cursor: pointer;
         }
-        .editprofile-btn:hover{
-            color: darkblue;
-        }
         h2{
-            color: white;
+            color: black;
             font-family: Verdana;
             text-align: center;  
             font-size: 20px;    
         }
         h3 {
-            color: white;
+            color: black;
             font-family: Verdana;
             text-align: center;
             font-size: 18px;
         }
         .profile-section-name {
-            color: white;
+            color: black;
             font-family: Verdana;
             text-align: left;
         }
         h4{
-            color: white;
+            color: black;
             font-family: Verdana;
             text-align: center;
             font-size: 18px;
         }
         p{
-            color: white;
+            color: black;
             font-family: Verdana;
             text-align: justify;
         }
+        .gnm{
+            text-align: left;
+        }
+        
         table{
-            padding: 2px;
+            padding-bottom: 2px;
             border-style: none;
             margin-right: auto;
             margin-left: auto;
             width: 100%;
-            height: 60px;
         }
         th, td {
             border-style: none;
             text-align: center;
+            height: 18px;
         }
+        .shelf-data{
+            display: flex;
+            padding: 20px;
+            float: center; 
+        }
+        
         .shelf{
             padding: 2px;
             border-style: none;
@@ -201,10 +224,10 @@
         .shelf-content {
             padding: 20px;
             border: 2px solid black;
-            background-color: gray;
+            background-color: lightgray;
             border-radius: 20px;
-            height: 20vh;
-            width: 50%;
+            height: 30vh;
+            width: 100%;
         }
         button:hover {
             cursor: pointer;
@@ -214,15 +237,92 @@
             border: none;
             font-size: 16px;
         }
-        footer {
+        .create-btn{
             background-color: black;
-            color: #fff;
+            color: white;
+            font-family: Verdana;
+            font-size: 16px;
+            border: 2px solid blue;
+            text-align: center;
+            justify-content: center;
+            padding: 10px;
+            width: 10vw;
+            text-decoration: none;
+            border-radius: 20px;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+        .create-btn:hover{
+            background-color: white;
+            color: darkblue;
+            cursor: pointer;
+        }
+        .delete-btn{
+            background-color: black;
+            color: white;
+            font-family: Verdana;
+            font-size: 14px;
+            text-align: center;
+            justify-content: center;
+            padding: 10px;
+            display: block;
+            width: 6vw;
+            margin-left: auto;
+            margin-right: auto;
+            text-decoration: none;
+            border-radius: 20px;
+        }
+        .delete-btn:hover{
+            background-color: darkred;
+            color: white;
+            cursor: pointer;
+        }
+        .view-btn{
+            background-color: black;
+            color: white;
+            font-family: Verdana;
+            font-size: 14px;
+            text-align: center;
+            justify-content: center;
+            padding: 10px;
+            width: 69px;
+            height: 20px;
+            align-self: center;
+            text-decoration: none;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .view-btn:hover{
+            background-color: white;
+            color: darkblue;
+            cursor: pointer;
+        }
+        .book-cover{
+            height: 20vh;
+            border-radius: 10px;
+        }
+        /*footer*/
+        footer {
+            background-color: #060270;
             text-align: center;
             position: fixed;
             bottom: 0;
             width: 100%;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            box-shadow: 2px 2px 8px black;
+            position: relative;
+        }
+        .footer-title{
+            color: white;
         }
         .footer-text {
+            color: white;
             text-align: center;
             padding: 5px;
         }
@@ -231,29 +331,32 @@
 </head>
 <body>
     <section class = "page">
-        <div class = "navigation-area">
-            <div class = "navigation-bar">
-                <h1><a href = "{{ route('welcome.welcome') }}" class = "web-name">GEM'S FICTOON</a></h1>
-                <ul>
-                    <li><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
-                    <li><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
-                    <li><a href = "{{ route('library.library') }}">LIBRARY</a></li>
-                    <li><a href = "{{ route('about.about') }}" >ABOUT</a></li>
-                    <li><a href = "{{ route('account.account') }}" class = "active">ACCOUNT</a></li>
-                    <li>
-                        <form method="POST" action="{{ route('logout') }}">
-                        @csrf
+    <div class = "navigation-bar">
+                <div class = "nav-left">
+                    <h1><a href = "welcome.welcome" class = "web-name">GEM'S FICTOON</a></h1>
+                </div>
+                <div class = "nav-right">
+                    <ul class = "nav-page-list">
+                        <li class = "page-list-item"><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('library.library') }}">LIBRARY</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('about.about') }}">ABOUT</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('account.account') }}" class = "active">ACCOUNT</a></li>
+                        <li class = "page-list-item">
+                            <form method="POST" action="{{ route('logout') }}">
+                            @csrf
 
-                        <a :href="route('logout')"
-                            onclick="event.preventDefault();
+                            <x-responsive-nav-link :href="route('logout')"
+                                onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                            {{ __('LOG OUT') }}
-                        </a>
-                        </form>
-                    </li>
-                </ul>
+                                {{ __('LOG OUT') }}
+                            </x-responsive-nav-link>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                
             </div>
-        </div>
         <div class = "container-wrapper">
             <div class = "container">
                 <div class = "desc-box">
@@ -273,51 +376,48 @@
                             <th><h3>{{Auth::user()->follower}}</h3></th> 
                         </tr>
                         <tr>
-                            <td><h4>FOLLOWING</h4></td> <!--change this-->
-                            <td><h4>FOLLOWERS</h4></td> <!--change this-->
+                            <td><h4>FOLLOWING</h4></td>
+                            <td><h4>FOLLOWERS</h4></td>
                         </tr>
                     </table>
-                    <button type = "button" class = "info"><a href = "{{ route('editprofile') }}" class = "editprofile-btn">Edit Profile</button>
+                    <a href = "{{ route('editprofile') }}" class = "editprofile-btn">Edit Profile</a>
                 </div>
             </div>
-            <div class = "container-2">
-                <div class = "desc-box">
-                    <div class="flex justify-between">
-                        <h2 class="font-bold">SHELF</h2>
-                        <a href="{{route('book.create')}}" class="px-4 py-2 text-gray-100 rounded-md cursor-pointer bg-slate-900">Create A Book</a>
-                    </div> 
-                    <table class ="shelf">
+            <div class = "container">
+                <div class = "desc-box2">
+                        <h2 style="text-transform:uppercase">{{Auth::user()->username}}'s Shelf</h2>
+                    <table class ="shelf-content">
                         @foreach ($books as $book)
-                        <tr class="cursor-pointer">
-                                <td>
-                                    <img height="250px" width="250px" src="{{URL::to('/').'/storage/'.$book->image}}"/>
+                        <tr>
+                                <td class="shelf-data">
+                                    <img class = "book-cover" src="{{URL::to('/').'/storage/'.$book->image}}"/>
                                 </td>
-                                <td class="text-start">
-                                    <div class="w-full h-fit text-start">
-                                        <div class="text-lg font-bold text-white">{{$book->title}}</div>
-                                        <div class="text-white ">{{$book->summary}}</div>
+                                <td>
+                                    <div>
+                                        <h4 class = "gnm">{{$book->title}}</h4>
+                                        <p class = "gnm">{{$book->summary}}</p>
                                     </div>
                                 </td>
-                                <td class="space-y-6">
-                                    <a class="px-4 py-2 text-gray-100 rounded-md cursor-pointer bg-slate-900" href="{{route('book.profile',$book->id)}}">View</a>
-                         
+                                <td>
+                                    <a class="view-btn" href="{{route('book.profile',$book->id)}}">View</a>
+                                    
                                     <form method="POST" action="{{route('book.delete')}}">
                                         @csrf
                                         @method('DELETE')
-                                        <input type="number" hidden name="id" value="{{$book->id}}">
-                                        <input class="px-4 py-2 text-red-500 bg-slate-900 rounded-md" type="submit" value="Delete">
-                                    </form>
-                                </td>
+                                        <input type = "number" hidden name="id" value="{{$book->id}}">
+                                        <input class = "delete-btn" type="submit" value="Delete">
+                                    </form></td>
                             </tr>
                             @endforeach
                     </table>
+                    <a href="{{route('book.create')}}" class="create-btn">Create a Book</a>
                 </div>
             </div>
         </div>
     </section> 
 </body>
 <footer>
-        <h3> GEM'S FICTOON </h3>
+        <h3 class = "footer-title"> GEM'S FICTOON </h3>
         <p class = "footer-text">All rights reserved.</p>
 </footer>
 @props([

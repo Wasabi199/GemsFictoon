@@ -26,20 +26,16 @@
             padding-bottom: 10%;
             flex-direction: column;
         }
-        .navigation-area{
-            height: 100px;
-            width: 100%;
-            padding: 2px;
-            margin: 2px;
-            position: fixed;
-        }
         .navigation-bar{
             position: fixed;
-            margin: auto;
+            float: center;
             width: 100%;
-            background-color: black;
-            border-radius: 20px;
-            height: 10vh;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #060270;
+            border-bottom: 4px solid black;
+            border-top: 4px solid black;
+            box-shadow: 1px 1px 8px black;
         }
         h1{
             font-size: 30px;
@@ -207,11 +203,9 @@
 </head>
 <body>
     <section class = "page">
-        <div class = "navigation-area">
             <div class = "navigation-bar">
                 <a href = "{{ route('community.community') }}" class = "back-btn">BACK</a>
             </div>
-        </div>
         <div class = "container">
             <h4>PRIVATE GROUPS</h4>
             <div class = "story-container">

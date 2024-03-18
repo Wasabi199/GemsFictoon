@@ -18,25 +18,29 @@
         }
         .page{
             width: 100%;
-            height: 100vh;
+            height: 90vh;
             margin: auto;
             padding: 0;
             display: flex;
         }
-        .navigation-area{
-            height: 100px;
-            width: 100%;
-            padding: 2px;
-            margin: 2px;
-            position: fixed;
-        }
         .navigation-bar{
             position: fixed;
-            top: 2;
-            margin: auto;
+            float: center;
             width: 100%;
-            background-color: black;
-            border-radius: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #060270;
+            border-bottom: 4px solid black;
+            border-top: 4px solid black;
+            box-shadow: 1px 1px 8px black;
+        }
+        .nav-left{
+            float: left;
+        }
+        .nav-right{
+            float: right;
+            margin-right: 20px;
+            height: 100%;
         }
         /*Title texts*/
         h1{
@@ -77,15 +81,17 @@
             text-align: center;
         }
         /*Listing*/
-        ul.page-list{
+        ul.nav-page-list{
             list-style-type: none;
-            margin-top: 2%;
-            margin-bottom: 2%;
             overflow: hidden;
-            padding-left: 42%;
+            display: flex;
+            margin-top: 30px;
+            margin-bottom: 2px;
+            width: 40vw;
+            justify-content: space-around;
         }
         li.page-list-item{
-            float: left;
+            display: inline-block;
             color: white;
             padding-right: 10px;
             text-align: center;
@@ -97,9 +103,9 @@
             color: white;
             font-family: Verdana;
         }
-        li.page-list-item a:hover{
+        li a:hover{
             color: lightblue;
-            font-weight: bold;
+            font-weight: bold; 
         }
         li a{    
             padding: 6px;
@@ -110,6 +116,7 @@
         .active{
             color: skyblue;
             font-weight: bold;
+            text-shadow: 2px 2px 4px blue;
         }
         /*main content*/
         .container {
@@ -122,7 +129,7 @@
             margin-right: auto;
         }
         .group-boxes{
-            background-color: lightgray;
+            background-image: linear-gradient(darkgray, gray);
             margin: 15px;
             padding: 15px;
             width: 30vw;
@@ -181,13 +188,25 @@
         }
         /*footer*/
         footer {
-            background-color: black;
-            color: #fff;
+            background-color: #060270;
             text-align: center;
             position: fixed;
             bottom: 0;
             width: 100%;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            box-shadow: 2px 2px 8px black;
+            position: relative;
         }
+        .footer-title{
+            color: white;
+        }
+        .footer-text {
+            color: white;
+            text-align: center;
+            padding: 5px;
+        }
+
         .group-sec{
             width: 100%;
             min-height: 60vh;
@@ -213,8 +232,6 @@
             padding: 10px; 
             width: 10vw;
             cursor: pointer;
-            
-            
         }
         .close-button {
             background-color: black;
@@ -316,29 +333,32 @@
 </head>
 <body>
     <section class = "page">
-        <div class = "navigation-area">
-            <div class = "navigation-bar">
-                <h1><a href = "{{ route('welcome.welcome') }}" class = "web-name">GEM'S FICTOON</a></h1>
-                <ul class = "page-list">
-                    <li class = "page-list-item"><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
-                    <li class = "page-list-item"><a href = "{{ route('community.community') }}" class = "active">COMMUNITY</a></li>
-                    <li class = "page-list-item"><a href = "{{ route('library.library') }}">LIBRARY</a></li>
-                    <li class = "page-list-item"><a href = "{{ route('about.about') }}" >ABOUT</a></li>
-                    <li class = "page-list-item"><a href = "{{ route('account.account') }}" >ACCOUNT</a></li>
-                    <li class = "page-list-item">
-                        <form method="POST" action="{{ route('logout') }}">
-                        @csrf
+    <div class = "navigation-bar">
+                <div class = "nav-left">
+                    <h1><a href = "welcome.welcome" class = "web-name">GEM'S FICTOON</a></h1>
+                </div>
+                <div class = "nav-right">
+                    <ul class = "nav-page-list">
+                        <li class = "page-list-item"><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('community.community') }}" class = "active">COMMUNITY</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('library.library') }}">LIBRARY</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('about.about') }}" >ABOUT</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('account.account') }}" >ACCOUNT</a></li>
+                        <li class = "page-list-item">
+                            <form method="POST" action="{{ route('logout') }}">
+                            @csrf
 
-                        <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                            <x-responsive-nav-link :href="route('logout')"
+                                onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                            {{ __('LOG OUT') }}
-                        </x-responsive-nav-link>
-                        </form>
-                    </li>
-                </ul>
+                                {{ __('LOG OUT') }}
+                            </x-responsive-nav-link>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                
             </div>
-        </div>
         <div class = "group-sec">
 
             

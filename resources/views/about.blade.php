@@ -9,36 +9,38 @@
     <style>
         body{
             width: 100%;
-            height: 100vh;
+            min-height: 120vh;
             margin: auto;
             padding: 0;
             background-color: lightgray;
         }
-        section{
-            min-height: 100vh;
-        }
         .page{
             width: 100%;
+            min-height: 160vh;
             margin: auto;
             padding: 0;
             display: flex;
-            padding-bottom: 10%;
-        }
-        .navigation-area{
-            height: 100px;
-            width: 100%;
-            padding: 2px;
-            margin: 2px;
-            position: fixed;
         }
         .navigation-bar{
             position: fixed;
-            top: 2;
-            margin: auto;
+            float: center;
             width: 100%;
-            background-color: black;
-            border-radius: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #060270;
+            border-bottom: 4px solid black;
+            border-top: 4px solid black;
+            box-shadow: 1px 1px 8px black;
         }
+        .nav-left{
+            float: left;
+        }
+        .nav-right{
+            float: right;
+            margin-right: 20px;
+            height: 100%;
+        }
+
         h1 {
             font-size: 30px;
             color: white;
@@ -48,21 +50,24 @@
             display: block;
             margin-left: 25px;
         }
-        
-        ul{
+        /*Listing*/
+        ul.nav-page-list{
             list-style-type: none;
-            margin-top: 2%;
-            margin-bottom: 2%;
             overflow: hidden;
-            padding-left: 42%;
+            display: flex;
+            margin-top: 30px;
+            margin-bottom: 2px;
+            width: 40vw;
+            justify-content: space-around;
         }
-        li{
-            float: left;
+        li.page-list-item{
+            display: inline-block;
             color: white;
             padding-right: 10px;
             text-align: center;
             justify-content: center;
         }
+        /*Links*/
         a{
             text-decoration: none;
             color: white;
@@ -70,7 +75,7 @@
         }
         li a:hover{
             color: lightblue;
-            font-weight: bold;
+            font-weight: bold; 
         }
         li a{    
             padding: 6px;
@@ -81,6 +86,7 @@
         .active{
             color: skyblue;
             font-weight: bold;
+            text-shadow: 2px 2px 4px blue;
         }
         .container {
             width: 100%;
@@ -104,9 +110,9 @@
             margin-right: auto;
         }
         .ques-box{
-            background-image: linear-gradient(darkblue, blue);
+            background-image: linear-gradient(darkgray, gray);
             margin: 5px;
-            padding: 20px;
+            padding: 30px;
             width: 70vw;
             min-height: 18vh;
             border-radius: 20px;
@@ -118,7 +124,7 @@
         } 
         .con-container {
             width: 100%;
-            min-height: 100vh;
+            min-height: 160vh;
             margin: 20px;
             justify-content: center; 
         }
@@ -126,7 +132,7 @@
             border: 1px solid gray;
         }
         .dev-box{
-            background-image: linear-gradient(darkblue, blue);
+            background-image: linear-gradient(darkgray, gray);
             margin: 5px;
             padding: 5px;
             width: 30vw;
@@ -147,17 +153,17 @@
 
         }
         h2{
-            color: white;
+            color: black;
             font-family: Verdana;
         }
         h3 {
-            color: white;
+            color: black;
             font-family: Verdana;
             text-align: center;
             font-size: 18px;
         }
         h4{
-            color: white;
+            color: black;
             font-family: Verdana;
             text-align: center;
             font-size: 18px;
@@ -193,15 +199,23 @@
         .answer{
             text-align: justify;
         }
+        /*footer*/
         footer {
-            background-color: black;
-            color: #fff;
+            background-color: #060270;
             text-align: center;
             position: fixed;
             bottom: 0;
             width: 100%;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            box-shadow: 2px 2px 8px black;
+            position: relative;
+        }
+        .footer-title{
+            color: white;
         }
         .footer-text {
+            color: white;
             text-align: center;
             padding: 5px;
         }
@@ -209,29 +223,32 @@
 </head>
 <body>
     <section class = "page">
-        <div class = "navigation-area">
-            <div class = "navigation-bar">
-                <h1><a href = "{{ route('welcome.welcome') }}" class = "web-name">GEM'S FICTOON</a></h1>
-                <ul>
-                    <li><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
-                    <li><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
-                    <li><a href = "{{ route('library.library') }}">LIBRARY</a></li>
-                    <li><a href = "{{ route('about.about') }}" class = "active">ABOUT</a></li>
-                    <li><a href = "{{ route('account.account') }}">ACCOUNT</a></li>
-                    <li>
-                        <form method="POST" action="{{ route('logout') }}">
-                        @csrf
+    <div class = "navigation-bar">
+                <div class = "nav-left">
+                    <h1><a href = "welcome.welcome" class = "web-name">GEM'S FICTOON</a></h1>
+                </div>
+                <div class = "nav-right">
+                    <ul class = "nav-page-list">
+                        <li class = "page-list-item"><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('library.library') }}">LIBRARY</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('about.about') }}" class = "active">ABOUT</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('account.account') }}" >ACCOUNT</a></li>
+                        <li class = "page-list-item">
+                            <form method="POST" action="{{ route('logout') }}">
+                            @csrf
 
-                        <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                            <x-responsive-nav-link :href="route('logout')"
+                                onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                            {{ __('LOG OUT') }}
-                        </x-responsive-nav-link>
-                        </form>
-                    </li>
-                </ul>
+                                {{ __('LOG OUT') }}
+                            </x-responsive-nav-link>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                
             </div>
-        </div>
         <div class = "con-container">
             <br><br><br>
             <h2 class = "some-title">FAQs</h2>
@@ -300,7 +317,7 @@
     </section>
 </body>
 <footer>
-        <h3> GEM'S FICTOON </h3>
+        <h3 class = "footer-title"> GEM'S FICTOON </h3>
         <p class = "footer-text">All rights reserved.</p>
 </footer>
 </html>

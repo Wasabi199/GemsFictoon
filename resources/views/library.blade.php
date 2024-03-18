@@ -5,45 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="img_srcs/gem.png" type="image/x-icon">
+    <link rel="icon" href="/img_srcs/gem.png" type="image/x-icon">
     <title>Gem's Fictoon</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
 
     <style>
-        body {
+        body{
             width: 100%;
-            height: 100vh;
+            min-height: 120vh;
             margin: auto;
             padding: 0;
             background-color: lightgray;
         }
-
-        .page {
+        .page{
             width: 100%;
-            height: 100vh;
-            margin-left: auto;
-            margin-right: auto;
+            height: 150vh;
+            margin: auto;
             padding: 0;
             display: flex;
-            padding-bottom: 20%;
-            flex-direction: column;
         }
-
-        .navigation-area {
-            height: 100px;
-            width: 100%;
-            padding: 2px;
-            margin: 2px;
+        .navigation-bar{
             position: fixed;
+            float: center;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #060270;
+            border-bottom: 4px solid black;
+            border-top: 4px solid black;
+            box-shadow: 1px 1px 8px black;
         }
-
-        .navigation-bar {
-            position: fixed;
-            top: 2;
-            margin: auto;
-            width: 100%;
-            background-color: black;
-            border-radius: 20px;
+        .nav-left{
+            float: left;
+        }
+        .nav-right{
+            float: right;
+            margin-right: 20px;
+            height: 100%;
         }
 
         h1 {
@@ -55,29 +53,32 @@
             display: block;
             margin-left: 25px;
         }
-        ul.page-list{
+        /*Listing*/
+        ul.nav-page-list{
             list-style-type: none;
-            margin-top: 2%;
-            margin-bottom: 2%;
             overflow: hidden;
-            padding-left: 42%;
+            display: flex;
+            margin-top: 30px;
+            margin-bottom: 2px;
+            width: 40vw;
+            justify-content: space-around;
         }
         li.page-list-item{
-            float: left;
+            display: inline-block;
             color: white;
             padding-right: 10px;
             text-align: center;
             justify-content: center;
         }
-
+        /*Links*/
         a{
             text-decoration: none;
             color: white;
             font-family: Verdana;
         }
-        li.page-list-item a:hover{
+        li a:hover{
             color: lightblue;
-            font-weight: bold;
+            font-weight: bold; 
         }
         li a{    
             padding: 6px;
@@ -88,6 +89,7 @@
         .active{
             color: skyblue;
             font-weight: bold;
+            text-shadow: 2px 2px 4px blue;
         }
         .container {
             width: 100%;
@@ -96,7 +98,7 @@
         }
 
         .desc-box {
-            background-image: linear-gradient(darkblue, blue);
+            background-image: linear-gradient(darkgray, gray);
             padding: 26px;
             max-width: 50vw;
             min-height: 20vh;
@@ -163,11 +165,13 @@
             color: white;
             font-family: Verdana;
         }
+        .gnm{
+            color: black;
+        }
 
         .container {
             width: 100%;
-            min-height: 100vh;
-            margin: 20px;
+            min-height: 140vh;
             top: 10%;
             justify-content: center;
             display: block;
@@ -175,19 +179,30 @@
         }
 
         .story-container {
-            background-image: linear-gradient(darkblue, blue);
+            background-image: linear-gradient(darkgray, gray);
             margin: 5px;
             padding: 5px;
             width: 90vw;
-            /* min-height: 32vh; */
+            min-height: 32vh;
             border-radius: 20px;
             border: 3px solid black;
             text-align: left;
             margin-left: auto;
             margin-right: auto;
+            display: flex;  
+        }
+        .book-display{
+            width: 250px;
+            height: 250px;
+            display: flex;
+            margin: 10px;
+        }
+        .book-cover{
+            height: 20vh;
+            border-radius: 10px;
         }
         
-        button.genre-container{
+        .genre-container{
             display: flex;
             flex: 1;
             float: left;
@@ -205,17 +220,24 @@
         .genre-container:hover{
             cursor: pointer;
         }
+        
+        /*footer*/
         footer {
-            background-color: black;
-            color: #fff;
+            background-color: #060270;
             text-align: center;
             position: fixed;
             bottom: 0;
             width: 100%;
-            margin-top: auto;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            box-shadow: 2px 2px 8px black;
+            position: relative;
         }
-
+        .footer-title{
+            color: white;
+        }
         .footer-text {
+            color: white;
             text-align: center;
             padding: 5px;
         }
@@ -224,17 +246,19 @@
 
 <body>
     <section class = "page">
-        <div class = "navigation-area">
-            <div class = "navigation-bar">
-                <h1><a href = "{{ route('welcome.welcome') }}" class = "web-name">GEM'S FICTOON</a></h1>
-                <ul class = "page-list">
-                    <li class = "page-list-item"><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
-                    <li class = "page-list-item"><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
-                    <li class = "page-list-item"><a href = "{{ route('library.library') }}" class = "active">LIBRARY</a></li>
-                    <li class = "page-list-item"><a href = "{{ route('about.about') }}">ABOUT</a></li>
-                    <li class = "page-list-item"><a href = "{{ route('account.account') }}">ACCOUNT</a></li>
-                    <li class = "page-list-item">
-                        <form method="POST" action="{{ route('logout') }}">
+    <div class = "navigation-bar">
+                <div class = "nav-left">
+                    <h1><a href = "welcome.welcome" class = "web-name">GEM'S FICTOON</a></h1>
+                </div>
+                <div class = "nav-right">
+                    <ul class = "nav-page-list">
+                        <li class = "page-list-item"><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('library.library') }}" class = "active">LIBRARY</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('about.about') }}" >ABOUT</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('account.account') }}" >ACCOUNT</a></li>
+                        <li class = "page-list-item">
+                            <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
                             <x-responsive-nav-link :href="route('logout')"
@@ -242,32 +266,34 @@
                                         this.closest('form').submit();">
                                 {{ __('LOG OUT') }}
                             </x-responsive-nav-link>
-                        </form>
-                    </li>
-                </ul>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                
             </div>
-        </div>
         <div class = "container">
             <h4>Top Story</h4>
-            <div class = "flex justify-around story-container">
+            <div class = "story-container">
                 @foreach ($books as $book)
+                <div class = "book-display">
                     <a href="{{ route('book.profile', $book->id) }}">
-                        <div class="p-10">
-                            <img class="w-52" src="{{ URL::to('/') . '/storage/' . $book->image }}" />
-                        </div>
+                        <img class="book-cover" src="{{ URL::to('/') . '/storage/' . $book->image }}" />
                     </a>
+                </div>
+                    
                 @endforeach
             </div>
             <h4>Genres</h4>
             <div class = "story-container">
                 @foreach ($genre as $gen)
-                    <div>
-                        <div class="p-5 text-lg font-bold text-white">{{ $gen->title }}</div>
-                        <div class="grid grid-cols-5 gap-4 p-5">
+                    <div class = "divide">
+                        <h3 class = "gnm">{{ $gen->title }}</h3>
+                        <div class="book-display">
                             @foreach ($gen->book as $book)
                                 <a href="{{ route('book.profile', $book->id) }}">
                                     <div>
-                                        <img class="w-52" src="{{ URL::to('/') . '/storage/' . $book->image }}" />
+                                        <img class="book-cover" src="{{ URL::to('/') . '/storage/' . $book->image }}" />
                                     </div>
                                 </a>
                             @endforeach
