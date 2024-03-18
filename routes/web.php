@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserProfileController;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Genre;
@@ -72,7 +74,6 @@ Route::prefix('reader')->middleware(['auth'])->group(function () {
         ]);
     })->name('library.library');;
     
-
     Route::get('/community',[GroupController::class,'community'])->name('community.community');
 
     Route::get('/publicgroups',[GroupController::class,'publicGroup'])->name('publicgroups');
@@ -90,28 +91,30 @@ Route::prefix('reader')->middleware(['auth'])->group(function () {
     Route::get('/privategroups', [GroupController::class,'privateGroup'])->name('privategroups');
     
 
+    Route::get('notifications',[NotificationController::class,'notificationIndex'])->name('notif.notif');
+
+    Route::get('/editprofile', [UserProfileController::class,'editProfile'])->name('editprofile');
+    
+    Route::post('submit-profile-update',[UserProfileController::class,'submitEditProfile'])->name('submit-profile-update');
+    
+    Route::get('/createagroup', function () {
+        return view('createagroup');
+    })->name('createagroup');
+
+    Route::post('create-group',[GroupController::class,'createGroup'])->name('create-group');
+    
 });
 
 Route::get('/about', function () {
     return view('about');
 })->name('about.about');
 
-Route::get('/notifications', function () {
-    return view('notifications');
-})->name('notif.notif');
 
 
 
 
 
 
-Route::get('/editprofile', function () {
-    return view('editprofile');
-})->name('editprofile');
-
-Route::get('/createagroup', function () {
-    return view('createagroup');
-})->name('createagroup');
 
 
 

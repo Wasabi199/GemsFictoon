@@ -7,24 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="/img_srcs/gem.png" type="image/x-icon">
     <title>Gem's Fictoon</title>
-    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
-        body{
+        body {
             width: 100%;
             min-height: 120vh;
             margin: auto;
             padding: 0;
             background-color: lightgray;
         }
-        .page{
+
+        .page {
             width: 100%;
             height: 150vh;
             margin: auto;
             padding: 0;
             display: flex;
         }
-        .navigation-bar{
+
+        .navigation-bar {
             position: fixed;
             float: center;
             width: 100%;
@@ -35,10 +37,12 @@
             border-top: 4px solid black;
             box-shadow: 1px 1px 8px black;
         }
-        .nav-left{
+
+        .nav-left {
             float: left;
         }
-        .nav-right{
+
+        .nav-right {
             float: right;
             margin-right: 20px;
             height: 100%;
@@ -53,8 +57,9 @@
             display: block;
             margin-left: 25px;
         }
+
         /*Listing*/
-        ul.nav-page-list{
+        ul.nav-page-list {
             list-style-type: none;
             overflow: hidden;
             display: flex;
@@ -63,34 +68,41 @@
             width: 50vw;
             justify-content: space-around;
         }
-        li.page-list-item{
+
+        li.page-list-item {
             display: inline-block;
             color: white;
             padding-right: 10px;
             text-align: center;
             justify-content: center;
         }
+
         /*Links*/
-        a{
+        a {
             text-decoration: none;
             color: white;
             font-family: Verdana;
         }
-        li a:hover{
+
+        li a:hover {
             color: lightblue;
-            font-weight: bold; 
+            font-weight: bold;
         }
-        li a{    
+
+        li a {
             padding: 6px;
         }
+
         .web-name:hover {
             color: skyblue;
         }
-        .active{
+
+        .active {
             color: skyblue;
             font-weight: bold;
             text-shadow: 2px 2px 4px blue;
         }
+
         .container {
             width: 100%;
             min-height: 100vh;
@@ -165,7 +177,8 @@
             color: white;
             font-family: Verdana;
         }
-        .gnm{
+
+        .gnm {
             color: black;
         }
 
@@ -189,20 +202,22 @@
             text-align: left;
             margin-left: auto;
             margin-right: auto;
-            display: flex;  
+            display: flex;
         }
-        .book-display{
+
+        .book-display {
             width: 250px;
             height: 250px;
             display: flex;
             margin: 10px;
         }
-        .book-cover{
+
+        .book-cover {
             height: 20vh;
             border-radius: 10px;
         }
-        
-        .genre-container{
+
+        .genre-container {
             display: flex;
             flex: 1;
             float: left;
@@ -217,10 +232,11 @@
             font-size: 18px;
             flex: 1;
         }
-        .genre-container:hover{
+
+        .genre-container:hover {
             cursor: pointer;
         }
-        
+
         /*footer*/
         footer {
             background-color: #060270;
@@ -233,9 +249,11 @@
             box-shadow: 2px 2px 8px black;
             position: relative;
         }
-        .footer-title{
+
+        .footer-title {
             color: white;
         }
+
         .footer-text {
             color: white;
             text-align: center;
@@ -267,22 +285,21 @@
                                         this.closest('form').submit();">
                                 {{ __('LOG OUT') }}
                             </x-responsive-nav-link>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-                
+                        </form>
+                    </li>
+                </ul>
             </div>
+
+        </div>
         <div class = "container">
             <h4>Top Story</h4>
             <div class = "story-container">
                 @foreach ($books as $book)
-                <div class = "book-display">
-                    <a href="{{ route('book.profile', $book->id) }}">
-                        <img class="book-cover" src="{{ URL::to('/') . '/storage/' . $book->image }}" />
-                    </a>
-                </div>
-                    
+                    <div class = "book-display">
+                        <a href="{{ route('book.profile', $book->id) }}">
+                            <img class="book-cover" src="{{ URL::to('/') . '/storage/' . $book->image }}" />
+                        </a>
+                    </div>
                 @endforeach
             </div>
             <h4>Genres</h4>
@@ -294,7 +311,8 @@
                             @foreach ($gen->book as $book)
                                 <a href="{{ route('book.profile', $book->id) }}">
                                     <div>
-                                        <img class="book-cover" src="{{ URL::to('/') . '/storage/' . $book->image }}" />
+                                        <img class="book-cover"
+                                            src="{{ URL::to('/') . '/storage/' . $book->image }}" />
                                     </div>
                                 </a>
                             @endforeach
@@ -304,7 +322,7 @@
             </div>
         </div>
         </div>
-        
+
     </section>
 </body>
 <footer>

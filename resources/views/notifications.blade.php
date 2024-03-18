@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="/img_srcs/gem.png" type="image/x-icon">
-    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
+     @vite(['resources/css/app.css', 'resources/js/app.js']) 
 
     <title>Gem's Fictoon</title>
 
@@ -105,11 +105,10 @@
             background-image: linear-gradient(darkgray, gray);
             padding: 26px;
             max-width: 40vw;
-            min-height: 20vh;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 10vh;
             border-radius: 20px;
+            margin-top: 5px;
             border: 3px solid black;
             justify-content: center;
             text-align: justify;
@@ -360,9 +359,11 @@
             </div>
         <div class = "container-wrapper">
             <div class = "container">
+                @foreach (Auth::user()->notifications as $notification)
                 <div class = "desc-box">
-                    
-                </div>
+                        <div>{{$notification->data['message']}}</div>
+                    </div>
+                    @endforeach
             </div>
         </div>
     </section> 

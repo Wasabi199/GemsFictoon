@@ -191,17 +191,17 @@
                 <div class="p-5 space-y-4">
                     <div class="w-full">
                         <label class="text-md">Book Title</label>
-                        <input name="title" placeholder="Book Title" class="w-full h-8 rounded-md text-md" type="text">
+                        <input name="title" placeholder="Book Title" class="w-full h-8 rounded-md text-md" type="text" required>
                     </div>
           
                     <div class="w-full">
                         <label class="text-md">Summary</label>
-                        <textarea name="summary" placeholder="Some Book Summary" class="w-full h-20 rounded-md text-md" type="text"></textarea>
+                        <textarea name="summary" placeholder="Some Book Summary" class="w-full h-20 rounded-md text-md" type="text" required></textarea>
                     </div>
 
                     <div class="w-full">
                         <label class="text-md">Genre</label>
-                        <select name="genre" class="w-full rounded-md text-md">
+                        <select name="genre" class="w-full rounded-md text-md" required>
                             <option  selected disabled>Select Genre</option>
                             @foreach ($genre as $g)
                             <option class="text-md" value="{{ $g->id }}">{{$g->title}}</option>
@@ -211,7 +211,7 @@
 
                     <div class="w-full">
                         <label class="text-md">Category</label>
-                        <select name="category" class="w-full rounded-md text-md">
+                        <select name="category" class="w-full rounded-md text-md" required>
                             <option selected disabled>Select Category</option>
                             @foreach ($category as $c)
                             <option value="{{ $c->id }}">{{$c->title}}</option>
@@ -221,7 +221,7 @@
 
                     <div class="w-full">
                         <label class="text-md">Cover</label>
-                        <input name="image" type="file" class="w-full h-8 border border-black rounded-md text-md bg-white"/>
+                        <input name="image" type="file" class="w-full h-8 bg-white border border-black rounded-md text-md" required/>
                     </div>
                     <div class="create-btn">
                         <input type="submit" />
