@@ -12,22 +12,24 @@
     <style>
         body{
             width: 100%;
-            min-height: 150vh;
+            min-height: 100vh;
             margin: auto;
             padding: 0;
             background-color: lightgray;
         }
         .page{
             width: 100%;
-            min-height: 160vh;
+            min-height: 90vh;
             margin: auto;
             padding: 0;
             display: flex;
         }
-        .navigation-bar{
+        
+        .navigation-bar {
             position: fixed;
             float: center;
             width: 100%;
+            height: 94px;
             margin-left: auto;
             margin-right: auto;
             background-color: #060270;
@@ -52,6 +54,7 @@
             float: left;
             display: block;
             margin-left: 25px;
+            margin-top: 20px;
         }
         /*Listing*/
         ul.nav-page-list{
@@ -95,36 +98,28 @@
             display: flex;
             flex-direction: column;
             width: 100%;
-            margin: auto;
+            margin-left: auto;
+            margin-right: auto;
+            
         }
         .container {
             width: 100%;
-            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10%;
         }
         .desc-box{
             background-image: linear-gradient(darkgray, gray);
             padding: 26px;
-            max-width: 40vw;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 50vw;
+            margin: auto;
             border-radius: 20px;
             margin-top: 5px;
+            display: block;
             border: 3px solid black;
             justify-content: center;
             text-align: justify;
-        }
-        .desc-box2{
-            background-image: linear-gradient(darkgray, gray);
-            padding: 26px;
-            max-width: 60vw;
-            min-height: 20vh;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 6vh;
-            border-radius: 20px;
-            border: 3px solid black;
-            justify-content: center;
-            text-align: justify;
+
         }
         .user-photo{
             background-color: black;
@@ -162,7 +157,8 @@
             color: black;
             font-family: Verdana;
             text-align: center;  
-            font-size: 20px;    
+            font-size: 20px;   
+            font-weight: bold; 
         }
         h3 {
             color: black;
@@ -190,117 +186,7 @@
             text-align: left;
         }
         
-        table{
-            padding-bottom: 2px;
-            border-style: none;
-            margin-right: auto;
-            margin-left: auto;
-            width: 100%;
-        }
-        th, td {
-            border-style: none;
-            text-align: center;
-            height: 18px;
-        }
-        .shelf-data{
-            display: flex;
-            padding: 20px;
-            float: center; 
-        }
-        
-        .shelf{
-            padding: 2px;
-            border-style: none;
-            margin-right: auto;
-            margin-left: auto;
-            width: 100%;
-            height: 60px;
-        }
-        .shelf-name, .shelf-content {
-            border-style: none;
-            text-align: center;
-        }
-        .shelf-content {
-            padding: 20px;
-            border: 2px solid black;
-            background-color: lightgray;
-            border-radius: 20px;
-            height: 30vh;
-            width: 100%;
-        }
-        button:hover {
-            cursor: pointer;
-        }
-        button {
-            background: none;
-            border: none;
-            font-size: 16px;
-        }
-        .create-btn{
-            background-color: black;
-            color: white;
-            font-family: Verdana;
-            font-size: 16px;
-            border: 2px solid blue;
-            text-align: center;
-            justify-content: center;
-            padding: 10px;
-            width: 10vw;
-            text-decoration: none;
-            border-radius: 20px;
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 20px;
-        }
-        .create-btn:hover{
-            background-color: white;
-            color: darkblue;
-            cursor: pointer;
-        }
-        .delete-btn{
-            background-color: black;
-            color: white;
-            font-family: Verdana;
-            font-size: 14px;
-            text-align: center;
-            justify-content: center;
-            padding: 10px;
-            display: block;
-            width: 6vw;
-            margin-left: auto;
-            margin-right: auto;
-            text-decoration: none;
-            border-radius: 20px;
-        }
-        .delete-btn:hover{
-            background-color: darkred;
-            color: white;
-            cursor: pointer;
-        }
-        .view-btn{
-            background-color: black;
-            color: white;
-            font-family: Verdana;
-            font-size: 14px;
-            text-align: center;
-            justify-content: center;
-            padding: 10px;
-            width: 69px;
-            height: 20px;
-            align-self: center;
-            text-decoration: none;
-            border-radius: 20px;
-            margin-bottom: 20px;
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .view-btn:hover{
-            background-color: white;
-            color: darkblue;
-            cursor: pointer;
-        }
+
         .book-cover{
             height: 20vh;
             border-radius: 10px;
@@ -342,23 +228,14 @@
                         <li class = "page-list-item"><a href = "{{ route('about.about') }}">ABOUT</a></li>
                         <li class = "page-list-item"><a href = "{{ route('notif.notif') }}"  class = "active">NOTIFICATIONS</a></li>
                         <li class = "page-list-item"><a href = "{{ route('account.account') }}">ACCOUNT</a></li>
-                        <li class = "page-list-item">
-                            <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-responsive-nav-link :href="route('logout')"
-                                onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                                {{ __('LOG OUT') }}
-                            </x-responsive-nav-link>
-                            </form>
-                        </li>
                     </ul>
                 </div>
                 
             </div>
         <div class = "container-wrapper">
+            
             <div class = "container">
+            <h2>NOTIFICATIONS</h2>
                 @foreach (Auth::user()->notifications as $notification)
                 <div class = "desc-box">
                         <div>{{$notification->data['message']}}</div>

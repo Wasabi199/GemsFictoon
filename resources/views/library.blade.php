@@ -12,7 +12,7 @@
     <style>
         body {
             width: 100%;
-            min-height: 120vh;
+            min-height: 200vh;
             margin: auto;
             padding: 0;
             background-color: lightgray;
@@ -20,7 +20,7 @@
 
         .page {
             width: 100%;
-            height: 150vh;
+            min-height: 200vh;
             margin: auto;
             padding: 0;
             display: flex;
@@ -30,6 +30,7 @@
             position: fixed;
             float: center;
             width: 100%;
+            height: 94px;
             margin-left: auto;
             margin-right: auto;
             background-color: #060270;
@@ -56,6 +57,7 @@
             float: left;
             display: block;
             margin-left: 25px;
+            margin-top: 20px;
         }
 
         /*Listing*/
@@ -101,6 +103,13 @@
             color: skyblue;
             font-weight: bold;
             text-shadow: 2px 2px 4px blue;
+        }
+        .logout-btn{
+            display: inline-block;
+            color: white;
+            padding-right: 10px;
+            text-align: center;
+            justify-content: center;
         }
 
         .container {
@@ -170,7 +179,7 @@
             font-family: Verdana;
             padding-left: 30px;
             font-size: 24px;
-
+            font-weight: bold;
         }
 
         p {
@@ -180,14 +189,17 @@
 
         .gnm {
             color: black;
+            font-weight: bold;
         }
 
         .container {
             width: 100%;
-            min-height: 140vh;
+            min-height: 100vh;
             top: 10%;
             justify-content: center;
             display: block;
+            margin-left: auto;
+            margin-right: auto;
             margin-top: 8%;
         }
 
@@ -195,21 +207,21 @@
             background-image: linear-gradient(darkgray, gray);
             margin: 5px;
             padding: 5px;
-            width: 90vw;
+            width: 80vw;
             min-height: 32vh;
             border-radius: 20px;
             border: 3px solid black;
             text-align: left;
+            align-self: center;
             margin-left: auto;
             margin-right: auto;
-            display: flex;
+            display: block;
         }
 
         .book-display {
-            width: 250px;
-            height: 250px;
-            display: flex;
-            margin: 10px;
+            display: inline-block;
+            margin: auto;
+            padding: 20px;
         }
 
         .book-cover {
@@ -218,19 +230,15 @@
         }
 
         .genre-container {
-            display: flex;
-            flex: 1;
-            float: left;
             height: 34vh;
-            width: 20%;
+            width: 100%;
             border: 3px solid black;
             border-radius: 20px;
             margin: 10px;
-            background-image: linear-gradient("gray, lightgray");
             text-align: left;
             font-family: Verdana;
             font-size: 18px;
-            flex: 1;
+            display: block;
         }
 
         .genre-container:hover {
@@ -244,7 +252,7 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-            padding-top: 5px;
+            padding-top: 10px;
             padding-bottom: 5px;
             box-shadow: 2px 2px 8px black;
             position: relative;
@@ -252,9 +260,11 @@
 
         .footer-title {
             color: white;
+            margin-top: 10px;
         }
 
         .footer-text {
+            margin-top: 5px;
             color: white;
             text-align: center;
             padding: 5px;
@@ -276,17 +286,6 @@
                         <li class = "page-list-item"><a href = "{{ route('about.about') }}" >ABOUT</a></li>
                         <li class = "page-list-item"><a href = "{{ route('notif.notif') }}" >NOTIFICATIONS</a></li>
                         <li class = "page-list-item"><a href = "{{ route('account.account') }}" >ACCOUNT</a></li>
-                        <li class = "page-list-item">
-                            <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-responsive-nav-link :href="route('logout')"
-                                onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                                {{ __('LOG OUT') }}
-                            </x-responsive-nav-link>
-                        </form>
-                    </li>
                 </ul>
             </div>
 
@@ -304,21 +303,23 @@
             </div>
             <h4>Genres</h4>
             <div class = "story-container">
+                
                 @foreach ($genre as $gen)
-                    <div class = "divide">
                         <h3 class = "gnm">{{ $gen->title }}</h3>
-                        <div class="book-display">
+                        
                             @foreach ($gen->book as $book)
+                            <div class="book-display">
                                 <a href="{{ route('book.profile', $book->id) }}">
                                     <div>
                                         <img class="book-cover"
                                             src="{{ URL::to('/') . '/storage/' . $book->image }}" />
                                     </div>
                                 </a>
+                            </div>
                             @endforeach
-                        </div>
-                    </div>
+                        
                 @endforeach
+                </div>
             </div>
         </div>
         </div>

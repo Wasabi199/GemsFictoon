@@ -12,14 +12,14 @@
     <style>
         body{
             width: 100%;
-            min-height: 150vh;
+            min-height: 190vh;
             margin: auto;
             padding: 0;
             background-color: lightgray;
         }
         .page{
             width: 100%;
-            min-height: 160vh;
+            min-height: 190vh;
             margin: auto;
             padding: 0;
             display: flex;
@@ -146,7 +146,7 @@
             text-align: center;
             justify-content: center;
             padding: 10px;
-            width: 10vw;
+            width: 8vw;
             text-decoration: none;
             border-radius: 20px;
             display: flex;
@@ -159,6 +159,7 @@
             color: darkblue;
             cursor: pointer;
         }
+        
         h2{
             color: black;
             font-family: Verdana;
@@ -197,6 +198,7 @@
             margin-right: auto;
             margin-left: auto;
             width: 100%;
+            margin-top: 10px;
         }
         th, td {
             border-style: none;
@@ -204,9 +206,10 @@
             height: 18px;
         }
         .shelf-data{
-            display: flex;
+            display: block;
             padding: 20px;
             float: center; 
+            height: 100%;
         }
         
         .shelf{
@@ -229,6 +232,10 @@
             height: 30vh;
             width: 100%;
         }
+        .book-descs {
+            text-align: left;
+            width: 50%;
+        }
         button:hover {
             cursor: pointer;
         }
@@ -246,7 +253,7 @@
             text-align: center;
             justify-content: center;
             padding: 10px;
-            width: 10vw;
+            width: 8vw;
             text-decoration: none;
             border-radius: 20px;
             display: flex;
@@ -306,6 +313,27 @@
             height: 20vh;
             border-radius: 10px;
         }
+        .logout-btn{
+            font-family: Verdana;
+            font-size: 16px;
+            text-shadow: 2px 0 5px black;
+            justify-content: center;
+            padding: 5px;
+            width: 6vw;
+            height: 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            display: block;
+            margin-top: 40px;
+            margin-left: auto;
+            margin-right: 5px;
+        }
+        .logout-btn:hover{
+            color: darkred;
+        }
+        .book-buttons{
+            width: 10vw
+        }
         /*footer*/
         footer {
             background-color: #060270;
@@ -343,17 +371,6 @@
                         <li class = "page-list-item"><a href = "{{ route('about.about') }}">ABOUT</a></li>
                         <li class = "page-list-item"><a href = "{{ route('notif.notif') }}" >NOTIFICATIONS</a></li>
                         <li class = "page-list-item"><a href = "{{ route('account.account') }}" class = "active">ACCOUNT</a></li>
-                        <li class = "page-list-item">
-                            <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-responsive-nav-link :href="route('logout')"
-                                onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                                {{ __('LOG OUT') }}
-                            </x-responsive-nav-link>
-                            </form>
-                        </li>
                     </ul>
                 </div>
                 
@@ -380,24 +397,34 @@
                         </tr>
                     </table>
                     <a href = "{{ route('editprofile') }}" class = "editprofile-btn">Edit Profile</a>
+                    <form method="POST" action="{{ route('logout') }}" class = "logout-btn">
+                            @csrf
+
+                            <x-responsive-nav-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                        this.closest('form').submit();" >
+                                {{ __('LOGOUT') }}
+                            </x-responsive-nav-link>
+                    </form>
                 </div>
             </div>
+            
             <div class = "container">
                 <div class = "desc-box2">
                         <h2 style="text-transform:uppercase">{{Auth::user()->username}}'s Shelf</h2>
+                    @foreach ($books as $book)
                     <table class ="shelf-content">
-                        @foreach ($books as $book)
                         <tr>
                                 <td class="shelf-data">
                                     <img class = "book-cover" src="{{URL::to('/').'/storage/'.$book->image}}"/>
                                 </td>
-                                <td>
+                                <td class = "book-descs">
                                     <div>
                                         <h4 class = "gnm">{{$book->title}}</h4>
                                         <p class = "gnm">{{$book->summary}}</p>
                                     </div>
                                 </td>
-                                <td>
+                                <td class = "book-buttons">
                                     <a class="view-btn" href="{{route('book.profile',$book->id)}}">View</a>
                                     
                                     <form method="POST" action="{{route('book.delete')}}">
@@ -407,12 +434,14 @@
                                         <input class = "delete-btn" type="submit" value="Delete">
                                     </form></td>
                             </tr>
-                            @endforeach
+                           
                     </table>
+                    @endforeach
                     <a href="{{route('book.create')}}" class="create-btn">Create a Book</a>
                 </div>
             </div>
         </div>
+        
     </section> 
 </body>
 <footer>
