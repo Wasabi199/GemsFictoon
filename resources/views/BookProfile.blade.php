@@ -1,21 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/img_srcs/gem.png" type="image/x-icon">
+
+    <title>Gem's Fictoon</title>
+    <style>
+        body{
+            width: 100%;
+            min-height: 150vh;
+            margin: auto;
+            padding: 0;
+            background-color: lightgray;
+        }
+        .page{
+            width: 100%;
+            min-height: 160vh;
+            margin: auto;
+            padding: 0;
+            display: flex;
+        }
+        .navigation-bar{
+            position: fixed;
+            float: center;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #060270;
+            border-bottom: 4px solid black;
+            border-top: 4px solid black;
+            box-shadow: 1px 1px 8px black;
+        }
+        .nav-left{
+            float: left;
+        }
+        .nav-right{
+            float: right;
+            margin-right: 20px;
+            height: 100%;
+        }
+
+        /* texts */
+        .g-name {
+            font-size: 20px;
+            color: white;
+            font-family: Verdana;
+            font-weight: bolder;
+            float: left;
+            display: flex;
+            margin: 20px;
+            padding-left: 10px;
+        }
+        .grp-name{
+            font-size: 20px;
+            color: black;
+            font-family: Verdana;
+            font-weight: bolder;
+            text-align: center;
+        }
+        .intro{
+            font-size: 16px;
+            color: black;
+            font-family: Verdana;
+            text-align: center;
+        }
+        .post-text{
+            font-size: 14px;
+            color: black;
+            font-family: Verdana;
+        }
+
+        /* buttons */
+        a.back-btn{
+            text-decoration: none;
+            color: white;
+            font-family: Verdana;
+            font-weight: bold;
+            float: right;
+            margin: 20px;
+            padding: 10px;
+        }
+
+        .back-btn:hover {
+            color: skyblue;
+        }
+        .create-btn{
+            background-color: black;
+            color: white;
+            font-family: Verdana;
+            font-size: 14px;
+            border: 2px solid blue;
+            text-align: center;
+            justify-content: center;
+            padding: 5px;
+            width: 8vw;
+            text-decoration: none;
+            border-radius: 20px;
+            display: flex;
+            float: right;
+            margin-top: 26px;
+        }
+        .create-btn:hover{
+            background-color: white;
+            color: darkblue;
+            cursor: pointer;
+        }
+        .read-btn{
+            background-color: black;
+            color: white;
+            font-family: Verdana;
+            font-size: 14px;
+            text-align: center;
+            justify-content: center;
+            padding: 3px;
+            width: 5vw;
+            text-decoration: none;
+            border-radius: 5px;
+            display: flex;
+            float: right;
+            margin-top: 26px;
+        }
+        .read-btn:hover{
+            background-color: white;
+            color: darkblue;
+            cursor: pointer;
+        }
+        .update-btn{
+            background-color: black;
+            color: white;
+            font-family: Verdana;
+            font-size: 14px;
+            text-align: center;
+            justify-content: center;
+            padding: 3px;
+            width: 5vw;
+            text-decoration: none;
+            border-radius: 5px;
+            display: flex;
+            float: right;
+            margin-top: 26px;
+        }
+        .update-btn:hover{
+            background-color: blue;
+            cursor: pointer;
+        }
+        .delete-btn{
+            background-color: black;
+            color: white;
+            font-family: Verdana;
+            font-size: 14px;
+            text-align: center;
+            justify-content: center;
+            padding: 3px;
+            width: 5vw;
+            text-decoration: none;
+            border-radius: 5px;
+            display: flex;
+            float: right;
+            margin-top: 26px;
+        }
+        .delete-btn:hover{
+            background-color: darkred;
+            cursor: pointer;
+        }
+        .like-btn{
+            font-family: Verdana;
+            font-size: 14px;
+        }
+
+        /* containers */
+        .container-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+        .container {
+            width: 100%;
+            display: block;
+            
+        }
+        .desc-box{
+            background-image: linear-gradient(darkgray, gray);
+            padding: 26px;
+            width: 50vw;
+            min-height: 50vh;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            margin-top: 20vh;
+            border-radius: 20px;
+            border: 3px solid black;
+            justify-content: center;
+            text-align: justify;
+        }
+        .desc-box2{
+            background-image: linear-gradient(darkgray, gray);
+            padding: 26px;
+            max-width: 60vw;
+            min-height: 20vh;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            margin-top: 2vh;
+            border-radius: 20px;
+            border: 3px solid black;
+            justify-content: center;
+            text-align: justify;
+        }
+
+        /* additional */
+        
+    </style>
+</head>
+<body>
 <x-app-layout>
-    <div class="w-full flex justify-between p-10 border-b border-gray-500">
-        <div class="flex items-center py-2 my-auto text-3xl font-bold text-center text-gray-200">
-            <span>Book</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-8 h-8 font-bold">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>
-            <span> {{ $book->title }}</span>
+    <div class="navigation-bar">
+        <div class = "nav-left">
+            <div class="g-name">
+                <span>Book</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-8 h-8 font-bold">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+                <span> {{ $book->title }}</span>
+            </div>
         </div>
-        <div class="bg-red-500 flex items-center text-white py-2 px-4 rounded-md cursor-pointer">
-            <a href="{{route('account.account')}}">
+        <div class = "nav-right">
+            <a href="{{route('account.account')}}"class="back-btn">
                 Back
             </a>
         </div>
+        
     </div>
-    <div class="p-5">
-        <div class="w-1/2 p-5 m-auto space-y-5 bg-gray-100 rounded-md shadow-sm h-fit shadow-white">
+    <section class = "page">
+        <div class="container-wrapper">
+        <div class="desc-box">
             <div class="flex justify-between">
                 <div class="p-3 text-4xl font-black">Book Cover</div>
                 <img class="h-52 w-52" src="{{ URL::to('/') . '/storage/' . $book->image }}" />
@@ -35,14 +259,15 @@
             <div>
                 <div class="text-2xl font-bold">Category</div>
                 <div class="text-lg">{{ $book->category_title }}</div>
-            </div>
+            </div><br>
+            <hr>
             <table class="w-full">
                 <tr>
                     <thead>
-                        <th class="text-start 2xl">Table of Contents</th>
+                        <th class="text-2xl font-bold">Table of Contents</th>
                         @if (Auth::user()->id == $book->user_id)
                         <th class="flex justify-end px-5">
-                            <a href="{{route('create.book.chapter',$book->id)}}" class="px-4 py-2 text-gray-100 rounded-md bg-slate-900">Create</a></th>
+                            <a href="{{route('create.book.chapter',$book->id)}}" class="create-btn">Create Page</a></th>
                         @endif
                     </thead>
                 </tr>
@@ -51,23 +276,25 @@
                     <tbody>
                         <td class="text-lg font-bold">{{$chapter->title}}</td>
                         <td class="flex justify-end gap-4 p-5">
-                            <a class="px-4 py-2 text-white bg-green-400 rounded-md" href="{{route('chapter.read', $chapter->id)}}">Read</a>
-                            <a class="px-4 py-2 text-white bg-blue-400 rounded-md" href="{{route('update.book.chapter', $chapter->id)}}">Update</a>
-                            <form method="POST" action="{{route('chapter.delete')}}">
+                            <a class="read-btn" href="{{route('chapter.read', $chapter->id)}}">Read</a>
+                            <a class="update-btn" href="{{route('update.book.chapter', $chapter->id)}}">Update</a>
+                            <form method="POST" action="{{route('chapter.delete')}}" class="delete-btn">
                                 @csrf
                                 @method('DELETE')
                                 <input type="number" hidden name="id" value="{{$chapter->id}}">
-                                <input class="px-4 py-2 text-white bg-red-400 rounded-md" type="submit" value="Delete">
+                                <input  type="submit" value="Delete">
                             </form>
-
                         </td>
                     </tbody>
+                    
                 </tr>
                 @endforeach
+                
             </table>
-
+            <hr>
         </div>
-    </div>
+        </div>
+        
 
     @props(['book'])
 </x-app-layout>
@@ -76,3 +303,5 @@
         
     }
 </script>
+</body>
+    </html>

@@ -22,21 +22,16 @@
             display: flex;
             flex-direction: column;
         }
-        .navigation-area{
-            height: 100px;
-            width: 100%;
-            padding: 2px;
-            margin: 2px;
-            position: fixed;
-        }
         .navigation-bar{
             position: fixed;
-            top: 2;
-            margin: auto;
+            float: center;
             width: 100%;
-            background-color: black;
-            border-radius: 20px;
-            height: 10vh;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #060270;
+            border-bottom: 4px solid black;
+            border-top: 4px solid black;
+            box-shadow: 1px 1px 8px black;
         }
         h1{
             font-size: 30px;
@@ -91,6 +86,11 @@
             font-family: Verdana;
 
         }
+        span{
+            color: black;
+            font-family: Verdana;
+            font-size: 14px;
+        }
         .default-text{
             margin-top: 10vh;
             float: center;
@@ -108,8 +108,8 @@
         }
         .desc-box{
             background-color: white;
-            padding: 26px;
-            max-width: 50vw;
+            padding: 20px;
+            max-width: 40vw;
             min-height: 20vh;
             margin-left: auto;
             margin-right: auto;
@@ -119,17 +119,6 @@
             justify-content: center;
             text-align: justify;
             display: block;
-        }
-        .user-photo{
-            background-color: black;
-            margin: 10px;
-            display: flex;
-            border-radius: 20px;
-            border: 3px solid black;
-            width: 130px;
-            height: 130px;
-            margin-left: auto;
-            margin-right: auto;
         }
         .info{
             background-color: black;
@@ -150,21 +139,21 @@
             color: darkblue;
             cursor: pointer;
         }
-        .change-btn{
+        .create-btn{
             background-color: black;
             color: white;
             font-family: Verdana;
-            font-size: 14px;
+            font-size: 16px;
             border: 2px solid blue;
             text-align: center;
-            padding: 5px;
+            padding: 10px;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 20px;;
             display: flex;
             margin-left: auto;
             margin-right: auto;
         }
-        .change-btn:hover{
+        .create-btn:hover{
             background-color: white;
             color: darkblue;
             cursor: pointer;
@@ -178,6 +167,47 @@
         /* .editable-sec{
 
         } */
+        label{
+            color: black;
+            font-family: Verdana;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .type-text{
+            margin: 5px;
+            width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: 30px;
+            border: 1px solid black;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+        .type-longtext{
+            margin: 5px;
+            width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto; 
+            height: 90px;
+            border: 1px solid black;
+            border-radius: 10px;
+            font-size: 18px;
+            resize: none;
+            margin-bottom: 20px;
+        }
+        .select-type {
+            margin: 5px;
+            width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: 30px;
+            border: 1px solid black;
+            border-radius: 10px;
+            font-size: 18px;
+        }
         
         footer {
             background-color: black;
@@ -196,27 +226,29 @@
 </head>
 <body>
     <section class = "page">
-        <div class = "navigation-area">
             <div class = "navigation-bar">
                 <a href = "{{ route('account.account') }}">BACK</a>
             </div>
-        </div>
         <div class = "container-wrapper">
             <div class = "container">
+                
                 <div class = "desc-box">
-                    <div class = "user-photo">
-                        <img> <!--allow user to change their photo-->
-                    </div>
-                    <button type = "button" class = "info">Change Photo</button>
+                    <h4>EDIT USER PROFILE</h4>
+                    <hr><br>
                     <div class = "editable-sec">
-                        <h4 class = "profile-section-name">{{Auth::user()->username}}</h2> 
-                        <button type = "button" class = "change-btn">Change Username</button>
+                        <label for = "group-name">USERNAME</label>
                         <br>
-                        <h4 class = "profile-section-name">BIO</h4>
-                        <p>
-                        {{Auth::user()->biography}} <!--change this-->
-                        </p>
-                        <button type = "button" class = "change-btn">Change Bio</button>
+                        <span>Current: {{Auth::user()->username}} </span>
+                        <br>
+                        <input type = "text" class = "type-text" name = "userpname" id = "username">
+
+
+                        <label for = "group-intro">BIO</label>
+                        <br>
+                        <span>Current: {{Auth::user()->biography}} </span>
+                        <br>
+                        <textarea type = "text" class = "type-longtext" name = "groupintro" id = "groupintro"></textarea>
+                        <button type = "button" class = "create-btn">SUBMIT</button>
                     </div>
                 </div>
             </div>

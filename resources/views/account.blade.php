@@ -364,11 +364,9 @@
                         <img :src={{Auth::user()->user_image_link}}/>
                     </div>
                     <h2>{{Auth::user()->username}}</h2> 
-                    <h3>username</h3> <!--change this-->
-                    <br>
                     <h4 class = "profile-section-name">BIO</h4>
                     <p>
-                        {{Auth::user()->biography}} <!--change this-->
+                        {{Auth::user()->biography}}
                     </p>
                     <table>
                         <tr>
