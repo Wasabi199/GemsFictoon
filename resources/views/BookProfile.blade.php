@@ -98,9 +98,10 @@
             width: 8vw;
             text-decoration: none;
             border-radius: 20px;
-            display: flex;
+            display: block;
             float: right;
-            margin-top: 26px;
+            margin: auto;
+            margin: 20px;
         }
         .create-btn:hover{
             background-color: white;

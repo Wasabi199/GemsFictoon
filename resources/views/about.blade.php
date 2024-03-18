@@ -235,17 +235,6 @@
                         <li class = "page-list-item"><a href = "{{ route('about.about') }}" class = "active">ABOUT</a></li>
                         <li class = "page-list-item"><a href = "{{ route('notif.notif') }}" >NOTIFICATIONS</a></li>
                         <li class = "page-list-item"><a href = "{{ route('account.account') }}" >ACCOUNT</a></li>
-                        <li class = "page-list-item">
-                            <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-responsive-nav-link :href="route('logout')"
-                                onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                                {{ __('LOG OUT') }}
-                            </x-responsive-nav-link>
-                            </form>
-                        </li>
                     </ul>
                 </div>
                 

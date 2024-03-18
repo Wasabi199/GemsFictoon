@@ -133,7 +133,7 @@
         .desc-box{
             background-image: linear-gradient(darkgray, gray);
             padding: 26px;
-            max-width: 100vw;
+            width: 50vw;
             min-height: 20vh;
             margin-left: auto;
             margin-right: auto;
