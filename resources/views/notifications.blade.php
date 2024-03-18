@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="img_srcs/gem.png" type="image/x-icon">
+    <link rel="icon" href="/img_srcs/gem.png" type="image/x-icon">
+    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
+
     <title>Gem's Fictoon</title>
+
     <style>
         body{
             width: 100%;
-            min-height: 120vh;
+            min-height: 150vh;
             margin: auto;
             padding: 0;
             background-color: lightgray;
@@ -88,79 +91,90 @@
             font-weight: bold;
             text-shadow: 2px 2px 4px blue;
         }
+        .container-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin: auto;
+        }
         .container {
             width: 100%;
-            min-height: 20vh;
-            margin: 20px;
-            justify-content: center; 
-            text-align: center;
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
+            display: block;
         }
-        .container2 {
-            width: 100%;
-            min-height: 20vh;
-            margin: 20px;
-            justify-content: center; 
-            text-align: center;
-            float: center;
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .ques-box{
+        .desc-box{
             background-image: linear-gradient(darkgray, gray);
-            margin: 5px;
-            padding: 30px;
-            width: 70vw;
-            min-height: 18vh;
+            padding: 26px;
+            max-width: 40vw;
+            min-height: 20vh;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10vh;
             border-radius: 20px;
             border: 3px solid black;
+            justify-content: center;
+            text-align: justify;
+        }
+        .desc-box2{
+            background-image: linear-gradient(darkgray, gray);
+            padding: 26px;
+            max-width: 60vw;
+            min-height: 20vh;
             margin-left: auto;
             margin-right: auto;
-            display: inline-block;
-            
-        } 
-        .con-container {
-            width: 100%;
-            min-height: 160vh;
-            margin: 20px;
-            justify-content: center; 
-        }
-        hr{
-            border: 1px solid gray;
-        }
-        .dev-box{
-            background-image: linear-gradient(darkgray, gray);
-            margin: 5px;
-            padding: 5px;
-            width: 30vw;
-            height: 18vh;
+            margin-top: 6vh;
             border-radius: 20px;
             border: 3px solid black;
+            justify-content: center;
+            text-align: justify;
         }
-        
-        .dev-photo{
+        .user-photo{
             background-color: black;
             margin: 10px;
-            margin-right: 30px;
+            margin-right: auto;
+            margin-left: auto;
             border-radius: 20px;
             border: 3px solid black;
-            width: 100px;
-            height: 100px;
-            float: left;
+            width: 130px;
+            height: 130px;
+        }
+        .editprofile-btn{
+            background-color: black;
+            color: white;
+            font-family: Verdana;
+            font-size: 16px;
+            border: 2px solid blue;
+            text-align: center;
+            justify-content: center;
+            padding: 10px;
+            width: 10vw;
+            text-decoration: none;
+            border-radius: 20px;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
+        .editprofile-btn:hover{
+            background-color: white;
+            color: darkblue;
+            cursor: pointer;
         }
         h2{
             color: black;
             font-family: Verdana;
+            text-align: center;  
+            font-size: 20px;    
         }
         h3 {
             color: black;
             font-family: Verdana;
             text-align: center;
             font-size: 18px;
+        }
+        .profile-section-name {
+            color: black;
+            font-family: Verdana;
+            text-align: left;
         }
         h4{
             color: black;
@@ -168,36 +182,129 @@
             text-align: center;
             font-size: 18px;
         }
-        .some-title{
-            text-align: center;
-            margin-top: 5%;
-            font-size: 30px;
+        p{
             color: black;
-        }
-        h3 {
-            color: white;
             font-family: Verdana;
+            text-align: justify;
+        }
+        .gnm{
+            text-align: left;
+        }
+        
+        table{
+            padding-bottom: 2px;
+            border-style: none;
+            margin-right: auto;
+            margin-left: auto;
+            width: 100%;
+        }
+        th, td {
+            border-style: none;
             text-align: center;
-            font-size: 18px;
+            height: 18px;
         }
-        .question{
+        .shelf-data{
             display: flex;
-            padding-left: 20px;
+            padding: 20px;
+            float: center; 
         }
-        ol{
+        
+        .shelf{
+            padding: 2px;
+            border-style: none;
+            margin-right: auto;
+            margin-left: auto;
+            width: 100%;
+            height: 60px;
+        }
+        .shelf-name, .shelf-content {
+            border-style: none;
+            text-align: center;
+        }
+        .shelf-content {
+            padding: 20px;
+            border: 2px solid black;
+            background-color: lightgray;
+            border-radius: 20px;
+            height: 30vh;
+            width: 100%;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+        button {
+            background: none;
+            border: none;
+            font-size: 16px;
+        }
+        .create-btn{
+            background-color: black;
+            color: white;
             font-family: Verdana;
             font-size: 16px;
-            list-style-type: disc;
+            border: 2px solid blue;
+            text-align: center;
+            justify-content: center;
+            padding: 10px;
+            width: 10vw;
+            text-decoration: none;
+            border-radius: 20px;
+            display: flex;
             margin-left: auto;
             margin-right: auto;
-            display: flex;
+            margin-top: 20px;
         }
-        p{
+        .create-btn:hover{
+            background-color: white;
+            color: darkblue;
+            cursor: pointer;
+        }
+        .delete-btn{
+            background-color: black;
             color: white;
             font-family: Verdana;
+            font-size: 14px;
+            text-align: center;
+            justify-content: center;
+            padding: 10px;
+            display: block;
+            width: 6vw;
+            margin-left: auto;
+            margin-right: auto;
+            text-decoration: none;
+            border-radius: 20px;
         }
-        .answer{
-            text-align: justify;
+        .delete-btn:hover{
+            background-color: darkred;
+            color: white;
+            cursor: pointer;
+        }
+        .view-btn{
+            background-color: black;
+            color: white;
+            font-family: Verdana;
+            font-size: 14px;
+            text-align: center;
+            justify-content: center;
+            padding: 10px;
+            width: 69px;
+            height: 20px;
+            align-self: center;
+            text-decoration: none;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .view-btn:hover{
+            background-color: white;
+            color: darkblue;
+            cursor: pointer;
+        }
+        .book-cover{
+            height: 20vh;
+            border-radius: 10px;
         }
         /*footer*/
         footer {
@@ -219,6 +326,7 @@
             text-align: center;
             padding: 5px;
         }
+        
     </style>
 </head>
 <body>
@@ -232,9 +340,9 @@
                         <li class = "page-list-item"><a href = "{{ route('welcome.welcome') }}">HOME</a></li>
                         <li class = "page-list-item"><a href = "{{ route('community.community') }}">COMMUNITY</a></li>
                         <li class = "page-list-item"><a href = "{{ route('library.library') }}">LIBRARY</a></li>
-                        <li class = "page-list-item"><a href = "{{ route('about.about') }}" class = "active">ABOUT</a></li>
-                        <li class = "page-list-item"><a href = "{{ route('notif.notif') }}" >NOTIFICATIONS</a></li>
-                        <li class = "page-list-item"><a href = "{{ route('account.account') }}" >ACCOUNT</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('about.about') }}">ABOUT</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('notif.notif') }}"  class = "active">NOTIFICATIONS</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('account.account') }}">ACCOUNT</a></li>
                         <li class = "page-list-item">
                             <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -250,75 +358,20 @@
                 </div>
                 
             </div>
-        <div class = "con-container">
-            <br><br><br>
-            <h2 class = "some-title">FAQs</h2>
+        <div class = "container-wrapper">
             <div class = "container">
-                <br><br><br>
-                
-                <div class = "ques-box">
-                    <h4 class = "question">WHAT IS GEM'S FICTOON?</h4>
-                    <ol>
-                        <li class = "answer">Gem's Fictoon is a web and mobile digital library featuring an original fictional
-                            character of ours.
-                        </li>
-                    </ol>
-                    <br>
-                    <h4 class = "question">WHY "GEM" OF ALL NAMES?</h4>
-                    <ol>
-                        <li class = "answer">We believe that every writing of an author is a treasured gem; meaning, well-made,
-                            eye-catching, and valuable.
-                        </li>
-                    </ol>
-                    <br>
-                    <h4 class = "question">WHY DID YOU COME UP OF THIS TYPE OF PROJECT?</h4>
-                    <ol>
-                        <li class = "answer">There are so many social media platforms that authors can post their works to. However, 
-                            we cannot assure that they will reach their target readers. As for the real-life 
-                            experiences of our known amateur authors, they feel a little discouraged at times whenever 
-                            they encounter unsafe environment where their works are unfairly unappreciated. With this 
-                            project of ours, we aim to provide a safer and gentle community for those who share the same 
-                            interests.
-                        </li>
-                    </ol>
-                </div>
-            </div>
-            <hr>
-            <h2 class = "some-title">DEVELOPERS</h2>
-            <div class = "container">
-                <div class = "dev-box">
-                    <img src = "img_srcs/jopetU.jpg" alt = "dev pic" class = "dev-photo">
-                    <h2>JOPET UMALI</h2>
-                    <h4>Project Manager</h4>
-                </div>
-                <div class = "dev-box">
-                    <img src = "img_srcs/jlr.jpg" alt = "dev pic" class = "dev-photo">
-                    <h2>JIANNE ROSAL</h2>
-                    <h4>Frontend Developer</h4>
-                </div>
-                <div class = "dev-box">
-                    <img src = "img_srcs/lmbp.jpg" alt = "dev pic" class = "dev-photo">
-                    <h2>LARA MAXINE PALMA</h2>
-                    <h4>UI/UX Designer</h4>
-                </div>
-            </div>
-            <div class = "container2">
-                <div class = "dev-box">
-                    <img src = "img_srcs/marcoA.jpg" alt = "dev pic" class = "dev-photo">
-                    <h2>MARCO GABRIEL ASIA</h2>
-                    <h4>Web Developer</h4>
-                </div>
-                <div class = "dev-box">
-                    <img src = "img_srcs/LanchC.jpeg" alt = "dev pic" class = "dev-photo">
-                    <h2>LANCH CABUANG</h2>
-                    <h4>Mobile App Developer</h4>
+                <div class = "desc-box">
+                    
                 </div>
             </div>
         </div>
-    </section>
+    </section> 
 </body>
 <footer>
         <h3 class = "footer-title"> GEM'S FICTOON </h3>
         <p class = "footer-text">All rights reserved.</p>
 </footer>
+@props([
+    'books'
+])
 </html>

@@ -87,7 +87,7 @@
             display: flex;
             margin-top: 30px;
             margin-bottom: 2px;
-            width: 40vw;
+            width: 50vw;
             justify-content: space-around;
         }
         li.page-list-item{
@@ -343,6 +343,7 @@
                         <li class = "page-list-item"><a href = "{{ route('community.community') }}" class = "active">COMMUNITY</a></li>
                         <li class = "page-list-item"><a href = "{{ route('library.library') }}">LIBRARY</a></li>
                         <li class = "page-list-item"><a href = "{{ route('about.about') }}" >ABOUT</a></li>
+                        <li class = "page-list-item"><a href = "{{ route('notif.notif') }}" >NOTIFICATIONS</a></li>
                         <li class = "page-list-item"><a href = "{{ route('account.account') }}" >ACCOUNT</a></li>
                         <li class = "page-list-item">
                             <form method="POST" action="{{ route('logout') }}">

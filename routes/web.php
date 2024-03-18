@@ -96,6 +96,10 @@ Route::get('/about', function () {
     return view('about');
 })->name('about.about');
 
+Route::get('/notifications', function () {
+    return view('notifications');
+})->name('notif.notif');
+
 
 
 
