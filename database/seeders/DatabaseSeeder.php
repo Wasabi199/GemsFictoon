@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             $user->followerUser()->attach(User::inRandomOrder()->first()->id);
         }
 
-        Group::factory(5)->create();
+        // Group::factory(5)->create();
 
 
         $genre =[
