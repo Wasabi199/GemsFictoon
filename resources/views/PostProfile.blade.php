@@ -1,17 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/img_srcs/gem.png" type="image/x-icon">
+
+    <title>Gem's Fictoon</title>
+    <style>
+        body{
+            width: 100%;
+            min-height: 150vh;
+            margin: auto;
+            padding: 0;
+            background-color: lightgray;
+        }
+        .page{
+            width: 100%;
+            min-height: 160vh;
+            margin: auto;
+            padding: 0;
+            display: flex;
+        }
+        .navigation-bar{
+            position: fixed;
+            float: center;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #060270;
+            border-bottom: 4px solid black;
+            border-top: 4px solid black;
+            box-shadow: 1px 1px 8px black;
+        }
+        .nav-left{
+            float: left;
+        }
+        .nav-right{
+            float: right;
+            margin-right: 20px;
+            height: 100%;
+        }
+
+        /* texts */
+        .g-name {
+            font-size: 30px;
+            color: white;
+            font-family: Verdana;
+            font-weight: bolder;
+            margin-top: 25%;
+            float: left;
+            margin: 20px;
+            padding-left: 10px;
+        }
+        .grp-name{
+            font-size: 20px;
+            color: black;
+            font-family: Verdana;
+            font-weight: bolder;
+            text-align: center;
+        }
+        .intro{
+            font-size: 16px;
+            color: black;
+            font-family: Verdana;
+            text-align: center;
+        }
+        .post-text{
+            font-size: 14px;
+            color: black;
+            font-family: Verdana;
+        }
+
+        /* buttons */
+        a.back-btn{
+            text-decoration: none;
+            color: white;
+            font-family: Verdana;
+            font-weight: bold;
+            float: right;
+            margin: 20px;
+            padding: 10px;
+        }
+
+        .back-btn:hover {
+            color: skyblue;
+        }
+        .create-btn{
+            background-color: black;
+            color: white;
+            font-family: Verdana;
+            font-size: 16px;
+            border: 2px solid blue;
+            text-align: center;
+            justify-content: center;
+            padding: 5px;
+            width: 10vw;
+            text-decoration: none;
+            border-radius: 20px;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+        .create-btn:hover{
+            background-color: white;
+            color: darkblue;
+            cursor: pointer;
+        }
+        .like-btn{
+            font-family: Verdana;
+            font-size: 14px;
+        }
+
+        /* containers */
+        .container-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+        .container {
+            width: 100%;
+            display: block;
+            
+        }
+        .desc-box{
+            background-image: linear-gradient(darkgray, gray);
+            padding: 26px;
+            width: 40vw;
+            min-height: 20vh;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            margin-top: 20vh;
+            border-radius: 20px;
+            border: 3px solid black;
+            justify-content: center;
+            text-align: justify;
+        }
+        .desc-box2{
+            background-image: linear-gradient(darkgray, gray);
+            padding: 26px;
+            max-width: 60vw;
+            min-height: 20vh;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            margin-top: 2vh;
+            border-radius: 20px;
+            border: 3px solid black;
+            justify-content: center;
+            text-align: justify;
+        }
+
+        /* additional */
+        
+    </style>
+</head>
+<body>
 <x-app-layout>
-    <div class="flex justify-between w-full p-10 border-b border-gray-500">
-        <div class="flex items-center py-2 my-auto text-3xl font-bold text-center text-gray-200">
-          <span>{{$post->title}}</span>
+<div class="navigation-bar">
+        <div class="nav-left">
+            <h1 class = "g-name">{{$post->title}}</h1>  
         </div>
-        <div class="flex items-center px-4 py-2 text-white bg-red-500 rounded-md cursor-pointer ">
-            <a href="{{route('community.community')}}">
+        <div class="nav-right">
+            <a href="{{route('community.community')}}"  class = "back-btn">
                 Back
             </a>
         </div>
-    </div>
-    <div class="w-1/2 p-10 m-auto">
-        <div class="p-2 bg-gray-300 border border-black rounded-md">
-            <div class="text-2xl font-bold">{{$post->title}}</div>
+</div>
+    <section class="page">
+        <div class="container-wrapper">
+            <div class = "desc-box">
+            <h1 class = "grp-name">{{$post->title}}</h1>
             <div>
                 <p>{!!$post->content!!}</p>
             </div>
@@ -23,7 +187,7 @@
             </div>
         </div>
     <div class="flex justify-between py-2">
-        <div class="text-2xl font-bold text-white">Comments</div>
+        <div class="text-2xl font-bold text-black">Comments</div>
     </div>
     <div class="space-y-2">
         <div>
@@ -80,7 +244,11 @@
         </div>
     </div>
     </div>
+            </div>
+    </section>
     @props([
         'post'
     ])
 </x-app-layout>
+    </body>
+    </html>
